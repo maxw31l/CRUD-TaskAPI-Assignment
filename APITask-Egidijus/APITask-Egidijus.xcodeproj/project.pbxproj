@@ -1,0 +1,447 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ED0C3F6A29B2437000B6EDCD /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0C3F6929B2437000B6EDCD /* NetworkError.swift */; };
+		ED0C3F6C29B243AB00B6EDCD /* AccessRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0C3F6B29B243AB00B6EDCD /* AccessRequest.swift */; };
+		EDC36CDB29B0A36F008DC07E /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC36CDA29B0A36F008DC07E /* ListCell.swift */; };
+		EDCD370C29AFE163000D77DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCD370B29AFE163000D77DA /* AppDelegate.swift */; };
+		EDCD370E29AFE163000D77DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCD370D29AFE163000D77DA /* SceneDelegate.swift */; };
+		EDCD371029AFE163000D77DA /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCD370F29AFE163000D77DA /* TabBarViewController.swift */; };
+		EDCD371529AFE165000D77DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDCD371429AFE165000D77DA /* Assets.xcassets */; };
+		EDCD371829AFE165000D77DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDCD371629AFE165000D77DA /* LaunchScreen.storyboard */; };
+		EDCD372329AFE686000D77DA /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCD372229AFE686000D77DA /* AuthenticationViewController.swift */; };
+		EDCD372629AFE6E6000D77DA /* TaskServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCD372529AFE6E6000D77DA /* TaskServiceAPI.swift */; };
+		EDCD372A29AFE7FA000D77DA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCD372929AFE7F9000D77DA /* User.swift */; };
+		EDCD372D29AFE888000D77DA /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCD372C29AFE888000D77DA /* TaskViewController.swift */; };
+		EDCD372F29AFEE3E000D77DA /* AuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDCD372E29AFEE3E000D77DA /* AuthenticationViewController.xib */; };
+		EDCD373C29B0792F000D77DA /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCD373A29B0792F000D77DA /* UserViewController.swift */; };
+		EDCD373D29B0792F000D77DA /* UserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDCD373B29B0792F000D77DA /* UserViewController.xib */; };
+		EDD869A029B0B478009EB9C9 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD8699F29B0B478009EB9C9 /* UIAlertController.swift */; };
+		EDD869A229B0D192009EB9C9 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD869A129B0D192009EB9C9 /* Task.swift */; };
+		EDD869A429B0D296009EB9C9 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD869A329B0D296009EB9C9 /* UserInfo.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		ED0C3F6929B2437000B6EDCD /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		ED0C3F6B29B243AB00B6EDCD /* AccessRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessRequest.swift; sourceTree = "<group>"; };
+		EDC36CDA29B0A36F008DC07E /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
+		EDCD370829AFE163000D77DA /* APITask-Egidijus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "APITask-Egidijus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDCD370B29AFE163000D77DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EDCD370D29AFE163000D77DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		EDCD370F29AFE163000D77DA /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		EDCD371429AFE165000D77DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EDCD371729AFE165000D77DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EDCD371929AFE165000D77DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDCD372229AFE686000D77DA /* AuthenticationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
+		EDCD372529AFE6E6000D77DA /* TaskServiceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskServiceAPI.swift; sourceTree = "<group>"; };
+		EDCD372929AFE7F9000D77DA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		EDCD372C29AFE888000D77DA /* TaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
+		EDCD372E29AFEE3E000D77DA /* AuthenticationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthenticationViewController.xib; sourceTree = "<group>"; };
+		EDCD373A29B0792F000D77DA /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		EDCD373B29B0792F000D77DA /* UserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserViewController.xib; sourceTree = "<group>"; };
+		EDD8699F29B0B478009EB9C9 /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
+		EDD869A129B0D192009EB9C9 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		EDD869A329B0D296009EB9C9 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EDCD370529AFE163000D77DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ED0C3F6F29B246F000B6EDCD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EDCD373B29B0792F000D77DA /* UserViewController.xib */,
+				EDCD372E29AFEE3E000D77DA /* AuthenticationViewController.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EDC36CD929B0A31A008DC07E /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				EDCD370B29AFE163000D77DA /* AppDelegate.swift */,
+				EDCD370D29AFE163000D77DA /* SceneDelegate.swift */,
+				EDCD371429AFE165000D77DA /* Assets.xcassets */,
+				EDCD371629AFE165000D77DA /* LaunchScreen.storyboard */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
+		EDCD36FF29AFE163000D77DA = {
+			isa = PBXGroup;
+			children = (
+				EDCD370A29AFE163000D77DA /* APITask-Egidijus */,
+				EDCD370929AFE163000D77DA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EDCD370929AFE163000D77DA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EDCD370829AFE163000D77DA /* APITask-Egidijus.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EDCD370A29AFE163000D77DA /* APITask-Egidijus */ = {
+			isa = PBXGroup;
+			children = (
+				ED0C3F6F29B246F000B6EDCD /* Views */,
+				EDCD371F29AFE20C000D77DA /* Controllers */,
+				EDCD371929AFE165000D77DA /* Info.plist */,
+				EDC36CDA29B0A36F008DC07E /* ListCell.swift */,
+				EDCD372B29AFE80C000D77DA /* Models */,
+				EDCD372429AFE6DA000D77DA /* Service */,
+				EDC36CD929B0A31A008DC07E /* Supporting */,
+				EDD8699E29B0B466009EB9C9 /* UIAlertController */,
+			);
+			path = "APITask-Egidijus";
+			sourceTree = "<group>";
+		};
+		EDCD371F29AFE20C000D77DA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EDCD372C29AFE888000D77DA /* TaskViewController.swift */,
+				EDCD372229AFE686000D77DA /* AuthenticationViewController.swift */,
+				EDCD370F29AFE163000D77DA /* TabBarViewController.swift */,
+				EDCD373A29B0792F000D77DA /* UserViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		EDCD372429AFE6DA000D77DA /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				EDCD372529AFE6E6000D77DA /* TaskServiceAPI.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		EDCD372B29AFE80C000D77DA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EDCD372929AFE7F9000D77DA /* User.swift */,
+				EDD869A129B0D192009EB9C9 /* Task.swift */,
+				EDD869A329B0D296009EB9C9 /* UserInfo.swift */,
+				ED0C3F6929B2437000B6EDCD /* NetworkError.swift */,
+				ED0C3F6B29B243AB00B6EDCD /* AccessRequest.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EDD8699E29B0B466009EB9C9 /* UIAlertController */ = {
+			isa = PBXGroup;
+			children = (
+				EDD8699F29B0B478009EB9C9 /* UIAlertController.swift */,
+			);
+			path = UIAlertController;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EDCD370729AFE163000D77DA /* APITask-Egidijus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDCD371C29AFE165000D77DA /* Build configuration list for PBXNativeTarget "APITask-Egidijus" */;
+			buildPhases = (
+				EDCD370429AFE163000D77DA /* Sources */,
+				EDCD370529AFE163000D77DA /* Frameworks */,
+				EDCD370629AFE163000D77DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "APITask-Egidijus";
+			productName = "APITask-Egidijus";
+			productReference = EDCD370829AFE163000D77DA /* APITask-Egidijus.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EDCD370029AFE163000D77DA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					EDCD370729AFE163000D77DA = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = EDCD370329AFE163000D77DA /* Build configuration list for PBXProject "APITask-Egidijus" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EDCD36FF29AFE163000D77DA;
+			productRefGroup = EDCD370929AFE163000D77DA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EDCD370729AFE163000D77DA /* APITask-Egidijus */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EDCD370629AFE163000D77DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDCD372F29AFEE3E000D77DA /* AuthenticationViewController.xib in Resources */,
+				EDCD373D29B0792F000D77DA /* UserViewController.xib in Resources */,
+				EDCD371829AFE165000D77DA /* LaunchScreen.storyboard in Resources */,
+				EDCD371529AFE165000D77DA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EDCD370429AFE163000D77DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDCD372329AFE686000D77DA /* AuthenticationViewController.swift in Sources */,
+				EDCD373C29B0792F000D77DA /* UserViewController.swift in Sources */,
+				EDCD372D29AFE888000D77DA /* TaskViewController.swift in Sources */,
+				EDCD371029AFE163000D77DA /* TabBarViewController.swift in Sources */,
+				EDD869A429B0D296009EB9C9 /* UserInfo.swift in Sources */,
+				EDD869A229B0D192009EB9C9 /* Task.swift in Sources */,
+				EDD869A029B0B478009EB9C9 /* UIAlertController.swift in Sources */,
+				EDCD372A29AFE7FA000D77DA /* User.swift in Sources */,
+				EDCD372629AFE6E6000D77DA /* TaskServiceAPI.swift in Sources */,
+				EDC36CDB29B0A36F008DC07E /* ListCell.swift in Sources */,
+				ED0C3F6A29B2437000B6EDCD /* NetworkError.swift in Sources */,
+				EDCD370C29AFE163000D77DA /* AppDelegate.swift in Sources */,
+				EDCD370E29AFE163000D77DA /* SceneDelegate.swift in Sources */,
+				ED0C3F6C29B243AB00B6EDCD /* AccessRequest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EDCD371629AFE165000D77DA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDCD371729AFE165000D77DA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EDCD371A29AFE165000D77DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EDCD371B29AFE165000D77DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EDCD371D29AFE165000D77DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "APITask-Egidijus/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.maxw31l.APITask-Egidijus";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EDCD371E29AFE165000D77DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "APITask-Egidijus/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.maxw31l.APITask-Egidijus";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EDCD370329AFE163000D77DA /* Build configuration list for PBXProject "APITask-Egidijus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDCD371A29AFE165000D77DA /* Debug */,
+				EDCD371B29AFE165000D77DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDCD371C29AFE165000D77DA /* Build configuration list for PBXNativeTarget "APITask-Egidijus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDCD371D29AFE165000D77DA /* Debug */,
+				EDCD371E29AFE165000D77DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EDCD370029AFE163000D77DA /* Project object */;
+}
