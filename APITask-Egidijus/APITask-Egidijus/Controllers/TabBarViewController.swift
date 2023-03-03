@@ -31,7 +31,7 @@ class TabBarViewController: UITabBarController {
   
     func setUser(_ user: User) {
         tasksVC.user = user
-//        userVC.user = user
+        userVC.user = user
     }
 
   @objc func addTapped() {

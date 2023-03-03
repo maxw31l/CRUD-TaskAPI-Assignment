@@ -16,6 +16,7 @@ class UserViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     usernameLabel.text = user?.username
+    print(user?.username)
   }
   
   @objc func trashTapped() {

@@ -96,7 +96,8 @@ class AuthenticationViewController: UIViewController {
 
 
       switch result {
-        case .success(_):
+        case .success(let user):
+          self.taskBarNav.setUser(user)
           self.navigationController?.setViewControllers([self.taskBarNav], animated: true)
         case .failure(let error):
           UIAlertController.showErrorAlert(title: error.message ?? "",
