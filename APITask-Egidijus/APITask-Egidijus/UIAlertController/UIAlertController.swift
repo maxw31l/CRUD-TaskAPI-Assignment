@@ -19,13 +19,12 @@ extension UIAlertController {
     controller.present(alert, animated: true)
 
   }
-
-  static func showError(title: String, message: String) {
-    let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil) // update req handler bus completion, kai completina, atsidaro kitas alertra,  o cancel atveju completion nil. 
-    let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    alertController.addAction(alertAction)
-
-  }
+//
+//  static func showError(title: String, message: String) {
+//    let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil) // update req handler bus completion, kai completina, atsidaro kitas alertra,  o cancel atveju completion nil.
+//    let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+//    alertController.addAction(alertAction)
+//  }
 
 
   

@@ -24,9 +24,20 @@ class AuthenticationViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    rotateTextField()
-    rotateButton()
-    addShadowToButton()
+    setupUI()
+  }
+
+  func setupUI() {
+    actionButton.layer.shadowRadius = 4
+    actionButton.layer.shadowColor = UIColor.black.cgColor
+    actionButton.layer.shadowOffset = CGSize(width: 2, height: 4)
+    actionButton.layer.shadowOpacity = 0.7
+
+    let adjustedPasswordField = CGFloat(2 * Double.pi / 180)
+    passwordTextField.layer.transform = CATransform3DMakeRotation(adjustedPasswordField, 0, 0, 1)
+
+    let adjustedButton = CGFloat(-1 * Double.pi / 180)
+    signLoginButton.layer.transform = CATransform3DMakeRotation(adjustedButton, 0, 0, 1)
   }
 
   enum State {
@@ -36,23 +47,6 @@ class AuthenticationViewController: UIViewController {
 
   var currentState: State = .login
   var stateIndex: Int = 1
-
-  func addShadowToButton() {
-      actionButton.layer.shadowRadius = 4
-      actionButton.layer.shadowColor = UIColor.black.cgColor
-      actionButton.layer.shadowOffset = CGSize(width: 2, height: 4)
-      actionButton.layer.shadowOpacity = 0.7
-  }
-
-  func rotateTextField() {
-      let rotationAngle = CGFloat(2 * Double.pi / 180)
-      passwordTextField.layer.transform = CATransform3DMakeRotation(rotationAngle, 0, 0, 1)
-  }
-
-  func rotateButton() {
-      let rotationAngle = CGFloat(-1 * Double.pi / 180)
-      signLoginButton.layer.transform = CATransform3DMakeRotation(rotationAngle, 0, 0, 1)
-  }
 
   @IBAction func signLoginButtonTapped(_ sender: Any) {
     if stateIndex >= 1 {

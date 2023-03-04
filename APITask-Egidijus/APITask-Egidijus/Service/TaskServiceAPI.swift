@@ -12,12 +12,8 @@ let baseURL = "http://134.122.94.77/api/"
 let loginPath = "User/login"
 let registerPath = "User/register"
 
-
 class TaskServiceAPI {
 
-//  static let shared = TaskServiceAPI()
-//  private init() { }
-  
   // GET
   public static func get(url: URL, completion: @escaping (Data?) -> Void) {
     URLSession.shared.dataTask(with: url) {
@@ -35,7 +31,6 @@ class TaskServiceAPI {
 
   // POST
   public static func postRequest(url: URL, body: Data?, completion: @escaping (Result<Data, NetworkError>) -> Void) {
-
 
     var request = URLRequest(url: url)
     request.httpMethod = "POST"
@@ -106,6 +101,35 @@ class TaskServiceAPI {
     }
   }
 
+  static func createTask(username: String, password: String, completion: @escaping (Result<User, NetworkError>) -> Void) {
+
+    let url = URL(string: "http://134.122.94.77/api/user/register")!
+
+    let registerRequest = AccessRequest(username: username, password: password)
+    let data = try! JSONEncoder().encode(registerRequest)
+
+    postRequest(url: url, body: data) { result in
+      switch result {
+        case .success(let data):
+
+          struct RegisterResponse: Decodable {
+            let userId: Int
+          }
+
+          guard let userResponse = try? JSONDecoder().decode(RegisterResponse.self, from: data) else {
+            completion(.failure(.init(statusCode: -1, errorType: .decodingFailed)))
+            return
+          }
+
+          let user = User(username: username, userId: userResponse.userId)
+          completion(.success(user))
+
+        case .failure(let error):
+          completion(.failure(error))
+      }
+    }
+  }
+
   static func loginUser(username: String, password: String, completion: @escaping (Result<User, NetworkError>) -> Void) {
 
 
@@ -136,75 +160,77 @@ class TaskServiceAPI {
     }
   }
 
- func buildURL(urlPath: String) -> URL? {
-  let baseURL = URL(string: baseURL)
+  static func deleteUser(url: URL, completion: @escaping (Result<Data, Error>) -> Void) {
 
-    let createdURL = baseURL?.appending(path: urlPath)
+      var request = URLRequest(url: url)
+    request.httpMethod = "DELETE"
+    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
-    print(createdURL ?? "")
-  return createdURL
+      URLSession.shared.dataTask(with: request) {
+          data,
+        response,
+        error in
+
+        DispatchQueue.main.async {
+          guard let data else {
+            let error = NSError(domain: "Error not found", code: 404)
+            completion(.failure(error))
+            return
+          }
+          completion(.success(data))
+        }
+      }.resume()
   }
 
-    static func fetchingUserTasks(url: URL, completion: @escaping (Tasks) -> Void) {
+  func buildURL(urlPath: String) -> URL? {
+    let baseURL = URL(string: baseURL)
+    let createdURL = baseURL?.appending(path: urlPath)
+
+    return createdURL
+  }
+
+  static func fetchingUserTasks(url: URL, completion: @escaping (Tasks) -> Void) {
 
     let session = URLSession.shared
-      //http://134.122.94.77/api/Task/userTasks?userId=93 <--- Dokumentacija
-      //http://134.122.94.77/api/Task/?userId=93 <--- MES
+    //http://134.122.94.77/api/Task/userTasks?userId=93 <--- Dokumentacija
+    //http://134.122.94.77/api/Task/?userId=93 <--- MES
     let dataTask = session.dataTask(with: url) { data, response, error in
       DispatchQueue.main.async {
         guard let data = data else { return }
-      do {
-        let parsingData = try JSONDecoder().decode(Tasks.self, from: data)
-        completion(parsingData)
-        print(parsingData)
-      } catch {
-        print(error.localizedDescription)
-        print("Catched")
+        do {
+          let parsingData = try JSONDecoder().decode(Tasks.self, from: data)
+          completion(parsingData)
+        } catch {
+//          print(error.localizedDescription)
+        }
       }
     }
-  }
     dataTask.resume()
-  }
-
-
-  static func delete(url: URL, completion: @escaping (Result<Data, Error>) -> Void) {
-
-      var request = URLRequest(url: url)
-      request.httpMethod = "DELETE"
-
-
-      URLSession.shared.dataTask(with: request) {
-          data, response, error in
-
-          if let error = error {
-              completion(.failure(error as Error))
-          }
-          guard let data else {
-              let e = NSError(domain: "Data out of scope", code: 404)
-              completion(.failure(e))
-              return
-          }
-          completion(.success(data))
-      }.resume()
   }
 
 }
 
-
-
-
 struct URLBuilder {
-    private static let kURLString = "http://134.122.94.77/api/Task/"
+  private static let kURLStringTask = "http://134.122.94.77/api/Task/"
+  private static let kURLStringUser = "http://134.122.94.77/api/User/"
 
-    static func getTaskURL() -> URL {
-        URL(string: kURLString)!
-    }
+  static func getTaskURL() -> URL {
+    URL(string: kURLStringTask)!
+  }
 
-    static func getTaskURL(withId id: Int) -> URL {
-        URL(string: kURLString + "\(id)")!
-    }
+  static func getTaskURL(withId id: Int) -> URL {
+    URL(string: kURLStringTask + "userTasks?userId=\(id)")!
+  }
 
-    static func postTaskURL() -> URL {
-        URL(string: kURLString)!
-    }
+  static func postTaskURL() -> URL {
+    URL(string: kURLStringTask)!
+  }
+
+  static func deleteUserURL() -> URL {
+    URL(string: kURLStringUser)!
+  }
+
+  static func createTask() -> URL {
+    URL(string: kURLStringTask)!
+  }
 }

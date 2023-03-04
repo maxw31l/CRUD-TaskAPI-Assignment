@@ -10,13 +10,24 @@ import UIKit
 class UserViewController: UIViewController {
 
   var user: User?
+
   
   @IBOutlet weak var usernameLabel: UILabel!
 
   override func viewDidLoad() {
     super.viewDidLoad()
     usernameLabel.text = user?.username
-    print(user?.username)
+  }
+
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    self.tabBarController?.navigationItem.title = "User"
+    self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(
+      image: UIImage(systemName: "trash"),
+      style: .done,
+      target: self,
+      action: #selector(trashTapped))
+    self.tabBarController?.navigationItem.rightBarButtonItem?.tintColor = .red
   }
   
   @objc func trashTapped() {
@@ -27,22 +38,16 @@ class UserViewController: UIViewController {
     }
 
     let optionYes = UIAlertAction(title: "Yes", style: .destructive) { [weak self] (action) in
+      guard let self = self else { return }
+      let urlPath = URL(string: "http://134.122.94.77/api/User/\(String(describing: self.user?.userId ?? -1))")!
 
-      let urlPath = URL(string: "http://134.122.94.77/api/user/\(String(describing: self?.user?.userId))")!
-      TaskServiceAPI.delete(url: urlPath) { res in
-        switch res {
+      TaskServiceAPI.deleteUser(url: urlPath) { result in
+        switch result {
           case .success(_):
-            DispatchQueue.main.async {
-              self?.showAlertWithDismiss()
-            }
-
-
+            self.navigationController?.setViewControllers([AuthenticationViewController()], animated: true)
           case .failure(_):
             DispatchQueue.main.async {
-              //                    self.showAlert("Failure", message: "User wasn't deleted")
-              UIAlertController.showError(title: "Error", message: "Something's wrong")
-            }
-            print(self?.user as Any)
+              UIAlertController.showErrorAlert(title: "Error", message: "Something's wrong", controller: self.self)            }
         }
       }
     }
@@ -53,20 +58,7 @@ class UserViewController: UIViewController {
     alert.addAction(optionCancel)
 
     self.present(alert, animated: true) {
-      // The alert was presented
     }
-  }
-
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    self.tabBarController?.navigationItem.title = "User"
-    //    navigationController?.navigationBar.backgroundColor = .systemGray6
-    self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(
-      image: UIImage(systemName: "trash"),
-      style: .done,
-      target: self,
-      action: #selector(trashTapped))
-    self.tabBarController?.navigationItem.rightBarButtonItem?.tintColor = .red
   }
 }
 

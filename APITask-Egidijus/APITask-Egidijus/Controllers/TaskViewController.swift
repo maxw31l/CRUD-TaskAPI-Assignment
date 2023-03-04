@@ -9,13 +9,10 @@ import UIKit
 
 class TaskViewController: UIViewController {
 
-//  let taskServiceAPI = TaskServiceAPI.shared
-
 
     var user: User?
 
-  var userTasksArray: [Task] = [Task(id: 1, title: "test", description: "description", estimateMinutes: 15, loggedTime: 3, isDone: true)]
-
+  var userTasksArray: [Task] = []
   private let tableView: UITableView = {
     let tableView = UITableView()
     tableView.backgroundColor = .systemBackground
@@ -25,20 +22,24 @@ class TaskViewController: UIViewController {
   }()
 
   override func viewDidLoad() {
+    self.tableView.reloadData()
     super.viewDidLoad()
     self.setupUI()
     self.tableView.delegate = self
     self.tableView.dataSource = self
+
+
+
   }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if let userId = user?.userId {
-            TaskServiceAPI.fetchingUserTasks(url: URLBuilder.getTaskURL(withId: userId)) { [weak self] task in
-                self?.userTasksArray.append(contentsOf: task.tasks)
-                self?.tableView.reloadData()
-            }
-        }
+      if let userId = user?.userId {
+          TaskServiceAPI.fetchingUserTasks(url: URLBuilder.getTaskURL(withId: userId)) { [weak self] task in
+            self?.userTasksArray = task.tasks
+            self?.tableView.reloadData()
+          }
+      }
     }
 
 
@@ -100,17 +101,13 @@ extension TaskViewController: UITableViewDelegate, UITableViewDataSource {
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//    guard var cell = tableView.dequeueReusableCell(withIdentifier: ListCell.identifier,
-//                                                   for: indexPath) as? ListCell else {
-//      fatalError("The TableView could not dequeue a Cell in TaskViewController") }
-//
-//    cell.textLabel?.text = userTasksArray[indexPath.row].title
-//    cell.detailTextLabel?.text = userTasksArray[indexPath.row].description
-//    return cell
 
     let cell = tableView.dequeueReusableCell(withIdentifier: ListCell.identifier) ?? UITableViewCell(style: .subtitle, reuseIdentifier: ListCell.identifier)
         cell.textLabel?.text = userTasksArray[indexPath.row].title
         cell.detailTextLabel?.text = userTasksArray[indexPath.row].description
+
+
+    
 
     return cell
   }
@@ -124,13 +121,7 @@ extension TaskViewController: UITableViewDelegate, UITableViewDataSource {
     tableView.deselectRow(at: indexPath, animated: true)
     print("cell tapped")
   }
+
+
 }
 
-
-//guard var cell = tableView.dequeueReusableCell(withIdentifier: ListCell.identifier,
-//                                               for: indexPath) as? ListCell else {
-//  fatalError("The TableView could not dequeue a Cell in TaskViewController") }
-//
-//cell.textLabel?.text = userTasksArray[indexPath.row].title
-//cell.detailTextLabel?.text = userTasksArray[indexPath.row].description
-//return cell

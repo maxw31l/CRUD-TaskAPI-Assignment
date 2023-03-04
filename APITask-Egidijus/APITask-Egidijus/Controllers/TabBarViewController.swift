@@ -15,7 +15,7 @@ class TabBarViewController: UITabBarController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-
+reloadInputViews()
     tasksVC.title = "Tasks"
     userVC.title = "User"
     self.setViewControllers([tasksVC, userVC], animated: false)
@@ -37,4 +37,6 @@ class TabBarViewController: UITabBarController {
   @objc func addTapped() {
 
   }
+
+  
 }
