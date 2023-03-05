@@ -79,7 +79,7 @@ class AuthenticationViewController: UIViewController {
         register()
       case .login:
         login()
-        registerTask()
+//        registerTask()
         updateTask()
 
     }
@@ -119,22 +119,22 @@ class AuthenticationViewController: UIViewController {
   }
 
 
-  func registerTask() {
-    TaskServiceAPI.registerTask(title: "111111111", description: "222222222", estimateMinutes: 5, assigneeId: 459) { [weak self] result in
-      guard self != nil else { return }
-
-      switch  result {
-
-        case .success(let task):
-
-          print("added new task with id: \(task.taskId)")
-
-
-        case .failure(let error):
-          print(error.localizedDescription)
-      }
-    }
-  }
+//  func registerTask() {
+//    TaskServiceAPI.createTask(title: "111111111", description: "222222222", estimateMinutes: 5, assigneeId: 459) { [weak self] result in
+//      guard self != nil else { return }
+//
+//      switch  result {
+//
+//        case .success(let task):
+//
+//          print("added new task with id: \(task.taskId)")
+//
+//
+//        case .failure(let error):
+//          print(error.localizedDescription)
+//      }
+//    }
+//  }
 
   
   func updateTask() {

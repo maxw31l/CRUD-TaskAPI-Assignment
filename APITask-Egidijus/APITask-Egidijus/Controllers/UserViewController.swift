@@ -17,11 +17,14 @@ class UserViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     usernameLabel.text = user?.username
+    self.tabBarController?.navigationItem.title = "User"
+
+
   }
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    self.tabBarController?.navigationItem.title = "User"
+
     self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(
       image: UIImage(systemName: "trash"),
       style: .done,
@@ -44,7 +47,7 @@ class UserViewController: UIViewController {
       TaskServiceAPI.deleteUser(url: urlPath) { result in
         switch result {
           case .success(_):
-            self.navigationController?.setViewControllers([AuthenticationViewController()], animated: true)
+            self.showAlertWithDismiss()
           case .failure(_):
               UIAlertController.showErrorAlert(title: "Error", message: "Something's wrong", controller: self.self)
         }
@@ -66,6 +69,7 @@ extension UserViewController {
     let alertController = UIAlertController(title: "Deleted!", message: "Please register again", preferredStyle: .alert)
     let dismissAction = UIAlertAction(title: "Ok", style: .default) { _ in
       self.dismiss(animated: true, completion: nil)
+      self.navigationController?.setViewControllers([AuthenticationViewController()], animated: true)
     }
     alertController.addAction(dismissAction)
     self.present(alertController, animated: true)

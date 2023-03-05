@@ -145,7 +145,7 @@ class TaskServiceAPI {
     }
   }
 
-  static func registerTask(title: String, description: String, estimateMinutes: Int, assigneeId: Int, completion: @escaping (Result<NewTaskId, NetworkError>) -> Void) {
+  static func createTask(title: String, description: String, estimateMinutes: Int, assigneeId: Int, completion: @escaping (Result<NewTaskId, NetworkError>) -> Void) {
 
     let url = URL(string: "http://134.122.94.77/api/Task/")!
 

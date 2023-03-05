@@ -17,6 +17,7 @@
 		EDCC9EE329B418410062B324 /* UpdateTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCC9EE229B418410062B324 /* UpdateTask.swift */; };
 		EDCC9EE529B4184E0062B324 /* UpdatedTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCC9EE429B4184E0062B324 /* UpdatedTask.swift */; };
 		EDCC9EE729B4189F0062B324 /* NewUpdatedTaskId.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCC9EE629B4189F0062B324 /* NewUpdatedTaskId.swift */; };
+		EDCC9EE929B47E4B0062B324 /* createTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCC9EE829B47E4A0062B324 /* createTaskViewController.swift */; };
 		EDCD370C29AFE163000D77DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCD370B29AFE163000D77DA /* AppDelegate.swift */; };
 		EDCD370E29AFE163000D77DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCD370D29AFE163000D77DA /* SceneDelegate.swift */; };
 		EDCD371029AFE163000D77DA /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCD370F29AFE163000D77DA /* TabBarViewController.swift */; };
@@ -45,6 +46,7 @@
 		EDCC9EE229B418410062B324 /* UpdateTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTask.swift; sourceTree = "<group>"; };
 		EDCC9EE429B4184E0062B324 /* UpdatedTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatedTask.swift; sourceTree = "<group>"; };
 		EDCC9EE629B4189F0062B324 /* NewUpdatedTaskId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUpdatedTaskId.swift; sourceTree = "<group>"; };
+		EDCC9EE829B47E4A0062B324 /* createTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createTaskViewController.swift; sourceTree = "<group>"; };
 		EDCD370829AFE163000D77DA /* APITask-Egidijus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "APITask-Egidijus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDCD370B29AFE163000D77DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDCD370D29AFE163000D77DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				EDCD372229AFE686000D77DA /* AuthenticationViewController.swift */,
 				EDCD370F29AFE163000D77DA /* TabBarViewController.swift */,
 				EDCD373A29B0792F000D77DA /* UserViewController.swift */,
+				EDCC9EE829B47E4A0062B324 /* createTaskViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 				EDCD371029AFE163000D77DA /* TabBarViewController.swift in Sources */,
 				EDD869A429B0D296009EB9C9 /* UserInfo.swift in Sources */,
 				EDCC9EDF29B3FE1B0062B324 /* NewTask.swift in Sources */,
+				EDCC9EE929B47E4B0062B324 /* createTaskViewController.swift in Sources */,
 				EDCC9EDB29B3F9650062B324 /* createTaskTest.swift in Sources */,
 				EDCC9EE729B4189F0062B324 /* NewUpdatedTaskId.swift in Sources */,
 				EDD869A229B0D192009EB9C9 /* Task.swift in Sources */,
