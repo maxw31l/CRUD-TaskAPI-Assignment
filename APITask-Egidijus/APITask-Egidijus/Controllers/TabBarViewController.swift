@@ -10,12 +10,15 @@ import UIKit
 
 class TabBarViewController: UITabBarController {
 
+
     let tasksVC = TaskViewController()
+ 
     let userVC = UserViewController()
+
 
   override func viewDidLoad() {
     super.viewDidLoad()
-
+reloadInputViews()
     tasksVC.title = "Tasks"
     userVC.title = "User"
     self.setViewControllers([tasksVC, userVC], animated: false)
@@ -29,12 +32,14 @@ class TabBarViewController: UITabBarController {
     self.tabBar.backgroundColor = .systemGray6
   }
   
-    func setUser(_ user: User) {
+    func setUser(_ user: NewUserId) {
         tasksVC.user = user
-//        userVC.user = user
+        userVC.user = user
     }
 
   @objc func addTapped() {
 
   }
+
+  
 }

@@ -9,13 +9,28 @@ import UIKit
 
 class UserViewController: UIViewController {
 
-  var user: User?
+  var user: NewUserId?
+
   
   @IBOutlet weak var usernameLabel: UILabel!
 
   override func viewDidLoad() {
     super.viewDidLoad()
     usernameLabel.text = user?.username
+    self.tabBarController?.navigationItem.title = "User"
+
+
+  }
+
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+
+    self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(
+      image: UIImage(systemName: "trash"),
+      style: .done,
+      target: self,
+      action: #selector(trashTapped))
+    self.tabBarController?.navigationItem.rightBarButtonItem?.tintColor = .red
   }
   
   @objc func trashTapped() {
@@ -26,46 +41,26 @@ class UserViewController: UIViewController {
     }
 
     let optionYes = UIAlertAction(title: "Yes", style: .destructive) { [weak self] (action) in
+      guard let self = self else { return }
+      let urlPath = URL(string: "http://134.122.94.77/api/User/\(String(describing: self.user?.userId ?? -1))")!
 
-      let urlPath = URL(string: "http://134.122.94.77/api/user/\(String(describing: self?.user?.userId))")!
-      TaskServiceAPI.delete(url: urlPath) { res in
-        switch res {
+      TaskServiceAPI.deleteUser(url: urlPath) { result in
+        switch result {
           case .success(_):
-            DispatchQueue.main.async {
-              self?.showAlertWithDismiss()
-            }
-
-
+            self.showAlertWithDismiss()
           case .failure(_):
-            DispatchQueue.main.async {
-              //                    self.showAlert("Failure", message: "User wasn't deleted")
-              UIAlertController.showError(title: "Error", message: "Something's wrong")
-            }
-            print(self?.user as Any)
+              UIAlertController.showErrorAlert(title: "Error", message: "Something's wrong", controller: self.self)
         }
       }
     }
 
-    let alert = UIAlertController(title: "Do you want to delete user?", message: nil, preferredStyle: .actionSheet)
-    alert.addAction(optionNo)
-    alert.addAction(optionYes)
-    alert.addAction(optionCancel)
+    let alertController = UIAlertController(title: "Do you want to delete user?", message: nil, preferredStyle: .actionSheet)
+    alertController.addAction(optionNo)
+    alertController.addAction(optionYes)
+    alertController.addAction(optionCancel)
 
-    self.present(alert, animated: true) {
-      // The alert was presented
+    self.present(alertController, animated: true) {
     }
-  }
-
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    self.tabBarController?.navigationItem.title = "User"
-    //    navigationController?.navigationBar.backgroundColor = .systemGray6
-    self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(
-      image: UIImage(systemName: "trash"),
-      style: .done,
-      target: self,
-      action: #selector(trashTapped))
-    self.tabBarController?.navigationItem.rightBarButtonItem?.tintColor = .red
   }
 }
 
@@ -74,6 +69,7 @@ extension UserViewController {
     let alertController = UIAlertController(title: "Deleted!", message: "Please register again", preferredStyle: .alert)
     let dismissAction = UIAlertAction(title: "Ok", style: .default) { _ in
       self.dismiss(animated: true, completion: nil)
+      self.navigationController?.setViewControllers([AuthenticationViewController()], animated: true)
     }
     alertController.addAction(dismissAction)
     self.present(alertController, animated: true)

@@ -24,9 +24,20 @@ class AuthenticationViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    rotateTextField()
-    rotateButton()
-    addShadowToButton()
+    setupUI()
+  }
+
+  func setupUI() {
+    actionButton.layer.shadowRadius = 4
+    actionButton.layer.shadowColor = UIColor.black.cgColor
+    actionButton.layer.shadowOffset = CGSize(width: 2, height: 4)
+    actionButton.layer.shadowOpacity = 0.7
+
+    let adjustedPasswordField = CGFloat(2 * Double.pi / 180)
+    passwordTextField.layer.transform = CATransform3DMakeRotation(adjustedPasswordField, 0, 0, 1)
+
+    let adjustedButton = CGFloat(-1 * Double.pi / 180)
+    signLoginButton.layer.transform = CATransform3DMakeRotation(adjustedButton, 0, 0, 1)
   }
 
   enum State {
@@ -36,23 +47,6 @@ class AuthenticationViewController: UIViewController {
 
   var currentState: State = .login
   var stateIndex: Int = 1
-
-  func addShadowToButton() {
-      actionButton.layer.shadowRadius = 4
-      actionButton.layer.shadowColor = UIColor.black.cgColor
-      actionButton.layer.shadowOffset = CGSize(width: 2, height: 4)
-      actionButton.layer.shadowOpacity = 0.7
-  }
-
-  func rotateTextField() {
-      let rotationAngle = CGFloat(2 * Double.pi / 180)
-      passwordTextField.layer.transform = CATransform3DMakeRotation(rotationAngle, 0, 0, 1)
-  }
-
-  func rotateButton() {
-      let rotationAngle = CGFloat(-1 * Double.pi / 180)
-      signLoginButton.layer.transform = CATransform3DMakeRotation(rotationAngle, 0, 0, 1)
-  }
 
   @IBAction func signLoginButtonTapped(_ sender: Any) {
     if stateIndex >= 1 {
@@ -83,9 +77,11 @@ class AuthenticationViewController: UIViewController {
     switch currentState {
       case .register:
         register()
-
       case .login:
         login()
+//        registerTask()
+        updateTask()
+
     }
   }
 
@@ -96,7 +92,8 @@ class AuthenticationViewController: UIViewController {
 
 
       switch result {
-        case .success(_):
+        case .success(let user):
+          self.taskBarNav.setUser(user)
           self.navigationController?.setViewControllers([self.taskBarNav], animated: true)
         case .failure(let error):
           UIAlertController.showErrorAlert(title: error.message ?? "",
@@ -105,7 +102,7 @@ class AuthenticationViewController: UIViewController {
       }
     }
   }
-  
+
   func login() {
     TaskServiceAPI.loginUser(username: usernameTextField.text!, password: passwordTextField.text!) { [weak self] result in
       guard let self else { return }
@@ -117,6 +114,42 @@ class AuthenticationViewController: UIViewController {
           UIAlertController.showErrorAlert(title: error.message ?? "",
                                            message: "Error with status code: \(error.statusCode)",
                                            controller: self)
+      }
+    }
+  }
+
+
+//  func registerTask() {
+//    TaskServiceAPI.createTask(title: "111111111", description: "222222222", estimateMinutes: 5, assigneeId: 459) { [weak self] result in
+//      guard self != nil else { return }
+//
+//      switch  result {
+//
+//        case .success(let task):
+//
+//          print("added new task with id: \(task.taskId)")
+//
+//
+//        case .failure(let error):
+//          print(error.localizedDescription)
+//      }
+//    }
+//  }
+
+  
+  func updateTask() {
+    TaskServiceAPI.updateTask(id: 274, title: "Wohjkhw", description: ";ssssss)", estimateMinutes: 15, assigneeId: 459, loggedTime: 5, isDone: true) { [weak self] result in
+      guard self != nil else { return }
+
+      switch  result {
+
+        case .success(let updatedTo):
+
+          print("added new task with id: \(updatedTo.taskId)")
+
+
+        case .failure(let error):
+          print("is this error ?: \(error.localizedDescription)") // cia error
       }
     }
   }
