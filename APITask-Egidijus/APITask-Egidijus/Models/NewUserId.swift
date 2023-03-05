@@ -7,7 +7,7 @@
 
 import Foundation
 
-class User {
+class NewUserId {
     var username: String
     var userId: Int
 
@@ -16,3 +16,4 @@ class User {
         self.userId = userId
     }
 }
+
