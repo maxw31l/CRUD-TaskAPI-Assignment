@@ -16,6 +16,9 @@ let updateTaskVC = UpdateTaskViewController()
   var delegate: reloadTableViewDelegate?
 //  @objc let createTaskVC = createTaskViewController()
 
+  var textField: UITextField?
+
+
   struct taskAccessRequest: Encodable {
     let taskId: Int
   }
@@ -36,10 +39,13 @@ let updateTaskVC = UpdateTaskViewController()
   override func viewDidLoad() {
     super.viewDidLoad()
     self.setupUI()
-
+//    self.textField = alertEstimatedMinutes.textFields?[0]
     tableView.delegate = self
     tableView.dataSource = self
+    func viewDidLoad() {
+//      self.textField = alertEstimatedMinutes.textFields?[0]
 
+    }
 
     if let userId = user?.userId {
       TaskServiceAPI.fetchingUserTasks(url: URLBuilder.getTaskURL(withId: userId)) { [weak self] task in
@@ -104,7 +110,7 @@ print("som")
         print("LALALALLA \(String(describing: newTitleText))")
       }
 
-      let alertDescription = UIAlertController(title: "Add a task", message: "Insert description", preferredStyle: .alert)
+    let alertDescription = UIAlertController(title: "Add a task", message: "Insert description", preferredStyle: .alert)
       alertDescription.addTextField { textField in
         textField.placeholder = "Description"
         textField.text = newDescriptionText
@@ -114,14 +120,30 @@ print("som")
       }
 
       let alertEstimatedMinutes = UIAlertController(title: "Add a task", message: "Insert estimated minutes", preferredStyle: .alert)
-      alertEstimatedMinutes.addTextField { textField in
-        var theText = textField.text ?? ""
-        var minutesInt = Int(theText) ?? 0
-        self.tableView.reloadData()
+    alertEstimatedMinutes.addTextField { minutesTextField in
 
-        textField.placeholder = "Estimated minutes"
-        minutesInt = newEstimateMinutes ?? 5
-        print(newEstimateMinutes)
+
+      func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == textField {
+          let allowedCharacters = "0123456789"
+          let allowedCharactersSet = CharacterSet(charactersIn: allowedCharacters)
+          let typedCharactersSet = CharacterSet(charactersIn: allowedCharacters)
+          let typedCharactersIn = CharacterSet(charactersIn: string)
+          let numbers = allowedCharactersSet.isSuperset(of: typedCharactersSet)
+          return numbers
+        }
+        return true
+      }
+
+
+
+          var theText = minutesTextField.text ?? ""
+          var minutesInt = Int(theText) ?? 0
+          self.tableView.reloadData()
+
+      minutesTextField.placeholder = "Estimated minutes"
+          minutesInt = newEstimateMinutes ?? 5
+          print(newEstimateMinutes)
 
 
       }
@@ -161,6 +183,8 @@ print("som")
         else {
 return
         }
+
+
 
         let newTitle = alertTextFields[0]
         let newDescription = descriptionTextFields[0]

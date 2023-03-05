@@ -25,6 +25,6 @@ extension UpdateTaskViewController {
   }
 
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 5
+    return 4
   }
 }
