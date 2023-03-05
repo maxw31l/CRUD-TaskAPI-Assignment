@@ -12,7 +12,7 @@ func reloadRequired()
 }
 
 class TaskViewController: UIViewController {
-
+let updateTaskVC = UpdateTaskViewController()
   var delegate: reloadTableViewDelegate?
 //  @objc let createTaskVC = createTaskViewController()
 
@@ -308,7 +308,7 @@ extension TaskViewController: UITableViewDelegate, UITableViewDataSource {
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
-    print("cell tapped")
+    navigationController?.pushViewController(updateTaskVC, animated: true)
   }
 
 

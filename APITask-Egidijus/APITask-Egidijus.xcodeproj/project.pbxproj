@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		ED0C3F6A29B2437000B6EDCD /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0C3F6929B2437000B6EDCD /* NetworkError.swift */; };
 		ED0C3F6C29B243AB00B6EDCD /* AccessRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0C3F6B29B243AB00B6EDCD /* AccessRequest.swift */; };
+		EDAFBC8F29B547F5007C4A8C /* UpdateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAFBC8E29B547F5007C4A8C /* UpdateTaskViewController.swift */; };
+		EDAFBC9129B5495A007C4A8C /* UpdateTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAFBC9029B5495A007C4A8C /* UpdateTaskCell.swift */; };
 		EDC36CDB29B0A36F008DC07E /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC36CDA29B0A36F008DC07E /* ListCell.swift */; };
-		EDCC9EDB29B3F9650062B324 /* createTaskTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCC9EDA29B3F9650062B324 /* createTaskTest.swift */; };
 		EDCC9EDD29B3FDDC0062B324 /* AccessTaskRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCC9EDC29B3FDDC0062B324 /* AccessTaskRequest.swift */; };
 		EDCC9EDF29B3FE1B0062B324 /* NewTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCC9EDE29B3FE1B0062B324 /* NewTask.swift */; };
 		EDCC9EE129B401690062B324 /* NewTaskId.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCC9EE029B401690062B324 /* NewTaskId.swift */; };
@@ -38,8 +39,9 @@
 /* Begin PBXFileReference section */
 		ED0C3F6929B2437000B6EDCD /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		ED0C3F6B29B243AB00B6EDCD /* AccessRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessRequest.swift; sourceTree = "<group>"; };
+		EDAFBC8E29B547F5007C4A8C /* UpdateTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTaskViewController.swift; sourceTree = "<group>"; };
+		EDAFBC9029B5495A007C4A8C /* UpdateTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTaskCell.swift; sourceTree = "<group>"; };
 		EDC36CDA29B0A36F008DC07E /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
-		EDCC9EDA29B3F9650062B324 /* createTaskTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createTaskTest.swift; sourceTree = "<group>"; };
 		EDCC9EDC29B3FDDC0062B324 /* AccessTaskRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTaskRequest.swift; sourceTree = "<group>"; };
 		EDCC9EDE29B3FE1B0062B324 /* NewTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTask.swift; sourceTree = "<group>"; };
 		EDCC9EE029B401690062B324 /* NewTaskId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskId.swift; sourceTree = "<group>"; };
@@ -124,7 +126,7 @@
 				EDCD372429AFE6DA000D77DA /* Service */,
 				EDC36CD929B0A31A008DC07E /* Supporting */,
 				EDD8699E29B0B466009EB9C9 /* UIAlertController */,
-				EDCC9EDA29B3F9650062B324 /* createTaskTest.swift */,
+				EDAFBC9029B5495A007C4A8C /* UpdateTaskCell.swift */,
 			);
 			path = "APITask-Egidijus";
 			sourceTree = "<group>";
@@ -137,6 +139,7 @@
 				EDCD370F29AFE163000D77DA /* TabBarViewController.swift */,
 				EDCD373A29B0792F000D77DA /* UserViewController.swift */,
 				EDCC9EE829B47E4A0062B324 /* createTaskViewController.swift */,
+				EDAFBC8E29B547F5007C4A8C /* UpdateTaskViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -249,13 +252,13 @@
 			files = (
 				EDCC9EDD29B3FDDC0062B324 /* AccessTaskRequest.swift in Sources */,
 				EDCD372329AFE686000D77DA /* AuthenticationViewController.swift in Sources */,
+				EDAFBC9129B5495A007C4A8C /* UpdateTaskCell.swift in Sources */,
 				EDCD373C29B0792F000D77DA /* UserViewController.swift in Sources */,
 				EDCD372D29AFE888000D77DA /* TaskViewController.swift in Sources */,
 				EDCD371029AFE163000D77DA /* TabBarViewController.swift in Sources */,
 				EDD869A429B0D296009EB9C9 /* UserInfo.swift in Sources */,
 				EDCC9EDF29B3FE1B0062B324 /* NewTask.swift in Sources */,
 				EDCC9EE929B47E4B0062B324 /* createTaskViewController.swift in Sources */,
-				EDCC9EDB29B3F9650062B324 /* createTaskTest.swift in Sources */,
 				EDCC9EE729B4189F0062B324 /* NewUpdatedTaskId.swift in Sources */,
 				EDD869A229B0D192009EB9C9 /* Task.swift in Sources */,
 				EDD869A029B0B478009EB9C9 /* UIAlertController.swift in Sources */,
@@ -268,6 +271,7 @@
 				EDCD370C29AFE163000D77DA /* AppDelegate.swift in Sources */,
 				EDCC9EE329B418410062B324 /* UpdateTask.swift in Sources */,
 				EDCD370E29AFE163000D77DA /* SceneDelegate.swift in Sources */,
+				EDAFBC8F29B547F5007C4A8C /* UpdateTaskViewController.swift in Sources */,
 				ED0C3F6C29B243AB00B6EDCD /* AccessRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
