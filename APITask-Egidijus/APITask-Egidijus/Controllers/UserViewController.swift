@@ -9,7 +9,7 @@ import UIKit
 
 class UserViewController: UIViewController {
 
-  var user: User?
+  var user: NewUserId?
 
   
   @IBOutlet weak var usernameLabel: UILabel!
@@ -46,18 +46,17 @@ class UserViewController: UIViewController {
           case .success(_):
             self.navigationController?.setViewControllers([AuthenticationViewController()], animated: true)
           case .failure(_):
-            DispatchQueue.main.async {
-              UIAlertController.showErrorAlert(title: "Error", message: "Something's wrong", controller: self.self)            }
+              UIAlertController.showErrorAlert(title: "Error", message: "Something's wrong", controller: self.self)
         }
       }
     }
 
-    let alert = UIAlertController(title: "Do you want to delete user?", message: nil, preferredStyle: .actionSheet)
-    alert.addAction(optionNo)
-    alert.addAction(optionYes)
-    alert.addAction(optionCancel)
+    let alertController = UIAlertController(title: "Do you want to delete user?", message: nil, preferredStyle: .actionSheet)
+    alertController.addAction(optionNo)
+    alertController.addAction(optionYes)
+    alertController.addAction(optionCancel)
 
-    self.present(alert, animated: true) {
+    self.present(alertController, animated: true) {
     }
   }
 }

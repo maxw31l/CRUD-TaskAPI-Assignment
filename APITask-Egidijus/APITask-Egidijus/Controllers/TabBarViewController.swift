@@ -29,7 +29,7 @@ reloadInputViews()
     self.tabBar.backgroundColor = .systemGray6
   }
   
-    func setUser(_ user: User) {
+    func setUser(_ user: NewUserId) {
         tasksVC.user = user
         userVC.user = user
     }

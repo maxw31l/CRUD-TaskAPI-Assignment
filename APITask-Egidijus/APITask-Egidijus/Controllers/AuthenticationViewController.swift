@@ -77,9 +77,11 @@ class AuthenticationViewController: UIViewController {
     switch currentState {
       case .register:
         register()
-
       case .login:
         login()
+        registerTask()
+        updateTask()
+
     }
   }
 
@@ -100,7 +102,7 @@ class AuthenticationViewController: UIViewController {
       }
     }
   }
-  
+
   func login() {
     TaskServiceAPI.loginUser(username: usernameTextField.text!, password: passwordTextField.text!) { [weak self] result in
       guard let self else { return }
@@ -112,6 +114,42 @@ class AuthenticationViewController: UIViewController {
           UIAlertController.showErrorAlert(title: error.message ?? "",
                                            message: "Error with status code: \(error.statusCode)",
                                            controller: self)
+      }
+    }
+  }
+
+
+  func registerTask() {
+    TaskServiceAPI.registerTask(title: "111111111", description: "222222222", estimateMinutes: 5, assigneeId: 459) { [weak self] result in
+      guard self != nil else { return }
+
+      switch  result {
+
+        case .success(let task):
+
+          print("added new task with id: \(task.taskId)")
+
+
+        case .failure(let error):
+          print(error.localizedDescription)
+      }
+    }
+  }
+
+  
+  func updateTask() {
+    TaskServiceAPI.updateTask(id: 274, title: "Wohjkhw", description: ";ssssss)", estimateMinutes: 15, assigneeId: 459, loggedTime: 5, isDone: true) { [weak self] result in
+      guard self != nil else { return }
+
+      switch  result {
+
+        case .success(let updatedTo):
+
+          print("added new task with id: \(updatedTo.taskId)")
+
+
+        case .failure(let error):
+          print("is this error ?: \(error.localizedDescription)") // cia error
       }
     }
   }
