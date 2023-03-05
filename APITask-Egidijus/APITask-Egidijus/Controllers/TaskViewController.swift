@@ -319,7 +319,9 @@ extension TaskViewController: UITableViewDelegate, UITableViewDataSource {
           
           switch result {
             case .success(_):
-              tableView.deleteRows(at: [], with: .fade)
+            tableView.deleteRows(at: [], with: .fade)
+              let x = self.userTasksArray[indexPath.row]
+              print(x)
               self.userTasksArray.remove(at: indexPath.row)
                   tableView.reloadData()
             case .failure(_):
@@ -332,9 +334,18 @@ extension TaskViewController: UITableViewDelegate, UITableViewDataSource {
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
+
+    let taskId = userTasksArray[indexPath.row].id
+    let taskTitle = userTasksArray[indexPath.row].title
+    let description = userTasksArray[indexPath.row].description
+    let estimateMinutes = userTasksArray[indexPath.row].estimateMinutes
+    let loggedTime = userTasksArray[indexPath.row].loggedTime
+    let isDone = userTasksArray[indexPath.row].isDone
+
+
+
+
     navigationController?.pushViewController(updateTaskVC, animated: true)
   }
-
-
 }
 

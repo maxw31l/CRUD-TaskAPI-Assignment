@@ -209,12 +209,11 @@ print(data)
                          title: String,
                          description: String,
                          estimateMinutes: Int,
-                         assigneeId: Int,
                          loggedTime: Int,
                          isDone: Bool, completion: @escaping (Result<NewTaskIdUpdateId, NetworkError>) -> Void) {
     let url = URL(string: "http://134.122.94.77/api/Task/")!
 
-    let requestToUpdateTask = UpdateTask(id: id, title: title, description: description, estimateMinutes: estimateMinutes, assigneeId: assigneeId, loggedTime: loggedTime, isDone: isDone)
+    let requestToUpdateTask = UpdateTask(id: id, title: title, description: description, estimateMinutes: estimateMinutes, loggedTime: loggedTime, isDone: isDone)
 
     let data = try! JSONEncoder().encode(requestToUpdateTask)
 
