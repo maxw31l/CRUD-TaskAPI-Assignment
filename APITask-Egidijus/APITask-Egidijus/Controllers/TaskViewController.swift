@@ -275,6 +275,7 @@ extension TaskViewController: UITableViewDelegate, UITableViewDataSource {
     cell.textLabel?.text = userTasksArray[indexPath.row].title
     cell.detailTextLabel?.text = userTasksArray[indexPath.row].description
 
+
     
 
     return cell
@@ -286,16 +287,17 @@ extension TaskViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
       if editingStyle == .delete {
         tableView.beginUpdates()
+        let url = URL(string: "http://134.122.94.77/api/Task/\(String(describing: self.userTasksArray[indexPath.row].id))")!
+        print(url)
+        let taskId = userTasksArray[indexPath.row].id
 
-        TaskServiceAPI.deleteTask(url: urlPath) { result in
+        TaskServiceAPI.deleteTask(url: url) { result in
+          
           switch result {
             case .success(_):
               tableView.deleteRows(at: [], with: .fade)
-              tableView.reloadData()
-
-
-
-
+              self.userTasksArray.remove(at: indexPath.row)
+                  tableView.reloadData()
             case .failure(_):
               UIAlertController.showErrorAlert(title: "Error", message: "Something's wrong", controller: self.self)
           }
