@@ -119,39 +119,5 @@ class AuthenticationViewController: UIViewController {
   }
 }
 
-//  func registerTask() {
-//    TaskServiceAPI.createTask(title: "111111111", description: "222222222", estimateMinutes: 5, assigneeId: 459) { [weak self] result in
-//      guard self != nil else { return }
-//
-//      switch  result {
-//
-//        case .success(let task):
-//
-//          print("added new task with id: \(task.taskId)")
-//
-//
-//        case .failure(let error):
-//          print(error.localizedDescription)
-//      }
-//    }
-//  }
 
-  
-//  func updateTask() {
-//    TaskServiceAPI.updateTask(id: 274, title: "Wohjkhw", description: ";ssssss)", estimateMinutes: 15, assigneeId: user?.userId, loggedTime: 5, isDone: true) { [weak self] result in
-//      guard self != nil else { return }
-//
-//      switch  result {
-//
-//        case .success(let updatedTo):
-//
-//          print("added new task with id: \(updatedTo.taskId)")
-//
-//
-//        case .failure(let error):
-//          print("is this error ?: \(error.localizedDescription)") // cia error
-//      }
-//    }
-//  }
-//}
 

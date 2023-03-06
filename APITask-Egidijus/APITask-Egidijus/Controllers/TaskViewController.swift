@@ -12,7 +12,8 @@ func reloadRequired()
 }
 
 class TaskViewController: UIViewController {
-let updateTaskVC = UpdateTaskViewController()
+//let updateTaskVC = UpdateTaskViewController()
+  var updateTaskVC: UpdateTaskViewController!
   var delegate: reloadTableViewDelegate?
 //  @objc let createTaskVC = createTaskViewController()
 
@@ -27,6 +28,7 @@ let updateTaskVC = UpdateTaskViewController()
 
   var user: NewUserId?
 
+
   var userTasksArray: [Task] = []
   private let tableView: UITableView = {
     let tableView = UITableView()
@@ -37,6 +39,7 @@ let updateTaskVC = UpdateTaskViewController()
   }()
 
   override func viewDidLoad() {
+
     super.viewDidLoad()
     self.setupUI()
 //    self.textField = alertEstimatedMinutes.textFields?[0]
@@ -48,9 +51,10 @@ let updateTaskVC = UpdateTaskViewController()
     }
 
     if let userId = user?.userId {
+      updateTaskVC.user?.userId = userId
       TaskServiceAPI.fetchingUserTasks(url: URLBuilder.getTaskURL(withId: userId)) { [weak self] task in
         self?.userTasksArray = task.tasks
-        self?.updateTaskVC.userId = userId
+
       }
     }
   }
@@ -58,7 +62,7 @@ let updateTaskVC = UpdateTaskViewController()
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     self.setupNavBar()
-
+    print(self.user?.userId ?? 0)
 
     self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(
       image: UIImage(systemName: "plus.app"),
@@ -91,7 +95,7 @@ let updateTaskVC = UpdateTaskViewController()
 
 
 
-print("som")
+
 
   
     var newTitleText: String?
@@ -108,7 +112,7 @@ print("som")
         textField.text = newTitleText
         self.tableView.reloadData()
 
-        print("LALALALLA \(String(describing: newTitleText))")
+
       }
 
     let alertDescription = UIAlertController(title: "Add a task", message: "Insert description", preferredStyle: .alert)
@@ -117,7 +121,7 @@ print("som")
         textField.text = newDescriptionText
         self.tableView.reloadData()
 
-        print(newDescriptionText)
+
       }
 
       let alertEstimatedMinutes = UIAlertController(title: "Add a task", message: "Insert estimated minutes", preferredStyle: .alert)
@@ -144,7 +148,7 @@ print("som")
 
       minutesTextField.placeholder = "Estimated minutes"
           minutesInt = newEstimateMinutes ?? 5
-          print(newEstimateMinutes)
+
 
 
       }
@@ -201,7 +205,6 @@ return
 print("Empty textField")
 return
         }
-        print(newTitle)
 
         TaskServiceAPI.createTask(title: title, description: description , estimateMinutes: newMinutesInt
 , assigneeId: self.user?.userId ?? -1) { [weak self] result in
@@ -286,7 +289,7 @@ return
 extension TaskViewController: UITableViewDelegate, UITableViewDataSource {
 
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    print(userTasksArray.count)
+
     return userTasksArray.count
   }
 
@@ -313,7 +316,7 @@ extension TaskViewController: UITableViewDelegate, UITableViewDataSource {
     if editingStyle == .delete {
       tableView.beginUpdates()
       let url = URL(string: "http://134.122.94.77/api/Task/\(String(describing: self.userTasksArray[indexPath.row].id))")!
-      print(url)
+
       let taskId = userTasksArray[indexPath.row].id
 
       TaskServiceAPI.deleteTask(url: url) { result in
@@ -322,7 +325,7 @@ extension TaskViewController: UITableViewDelegate, UITableViewDataSource {
           case .success(_):
             tableView.deleteRows(at: [], with: .fade)
             let x = self.userTasksArray[indexPath.row]
-            print(x)
+
             self.userTasksArray.remove(at: indexPath.row)
             tableView.reloadData()
           case .failure(_):
@@ -332,19 +335,11 @@ extension TaskViewController: UITableViewDelegate, UITableViewDataSource {
       tableView.endUpdates()
 
     }
-//    var indexPathForSelectedRow: IndexPath? { get } do {
-//      self.userTasksArray[indexPath.row].id
-//    }
+
 
     var task: Int = userTasksArray[indexPath.row].id
 
-    print(task)
 
-
-//      if let selectedTaskId = indexPath.row {
-//print(selectedTaskId)
-//
-//      }
 
 
     }
@@ -352,13 +347,12 @@ extension TaskViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
 
-//    let indexPathForSelectedRow = self.tableView.indexPathForSelectedRow
-//    print(indexPathForSelectedRow)
 
     let selectedTaskId = self.userTasksArray[indexPath.row].id
-    print(selectedTaskId)
+    print("selectedTaskId \(selectedTaskId)")
 
     updateTaskVC.taskId = selectedTaskId
+
 
 
 
@@ -373,6 +367,8 @@ extension TaskViewController: UITableViewDelegate, UITableViewDataSource {
 
 
     navigationController?.pushViewController(updateTaskVC, animated: true)
+//    tabBarVC.setViewControllers([updateTaskVC], animated: true)
+    
 
 
   }

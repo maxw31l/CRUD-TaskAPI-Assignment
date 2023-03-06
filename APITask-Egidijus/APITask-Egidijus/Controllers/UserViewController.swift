@@ -24,7 +24,7 @@ class UserViewController: UIViewController {
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-
+    print(self.user?.userId ?? 0)
     self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(
       image: UIImage(systemName: "trash"),
       style: .done,

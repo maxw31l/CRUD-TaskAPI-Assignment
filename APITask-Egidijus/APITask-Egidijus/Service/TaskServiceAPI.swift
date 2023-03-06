@@ -66,7 +66,7 @@ class TaskServiceAPI {
             // ERROR BAD REQUEST
             completion(.failure(.init(message: dataString, statusCode: statusCode, errorType: .badRequest)))
           default:
-            completion(.failure(.init(statusCode: statusCode, errorType: .unknown)))
+            break
         }
       }
     }.resume()
@@ -91,6 +91,7 @@ class TaskServiceAPI {
           completion(.failure(.init(statusCode: statusCode, errorType: .unknown)))
           return
         }
+        print("PUT FUNC DATA PRINTED \(data.description)")
 
         let dataString = String(data: data, encoding: .utf8)
 
@@ -98,6 +99,7 @@ class TaskServiceAPI {
           completion(.failure(.init(statusCode: statusCode, errorType: .unknown)))
           return
         }
+        print("PUT FUNCD RESPONSE PRINTED \(httpResponse.description)")
 
         switch httpResponse.statusCode {
           case 200:
@@ -109,7 +111,8 @@ class TaskServiceAPI {
             // ERROR BAD REQUEST
             completion(.failure(.init(message: dataString, statusCode: statusCode, errorType: .badRequest)))
           default:
-            completion(.failure(.init(statusCode: statusCode, errorType: .unknown)))
+//            completion(.failure(.init(statusCode: statusCode, errorType: .unknown)))
+            break
         }
       }
     }.resume()
@@ -156,7 +159,6 @@ class TaskServiceAPI {
     TaskServiceAPI.postRequest(url: url, body: data) { result in
       switch result {
         case .success(let data):
-print(data)
           struct RegisterResponse: Decodable {
             let taskId: Int
           }
@@ -214,14 +216,14 @@ print(data)
                          isDone: Bool, completion: @escaping (Result<NewTaskIdUpdateId, NetworkError>) -> Void) {
     let url = URL(string: "http://134.122.94.77/api/Task/")!
 
-    let requestToUpdateTask = UpdateTask(id: id, title: title, description: description, estimateMinutes: estimateMinutes, loggedTime: loggedTime, isDone: isDone)
+    let requestToUpdateTask = UpdateTask(id: id, title: title, description: description, estimateMinutes: estimateMinutes, assigneeId: assigneeId, loggedTime: loggedTime, isDone: isDone)
 
     let data = try! JSONEncoder().encode(requestToUpdateTask)
 
     TaskServiceAPI.putRequest(url: url, body: data) { result in
       switch result {
         case .success(let data):
-          print("updateTask data: \(data)")
+          print("updatedTask data: \(data)")
 
           struct updateResponse: Decodable {
             let taskId: Int
@@ -234,11 +236,12 @@ print(data)
 
           let newUpdatedTaskId = NewTaskIdUpdateId(taskId: taskResponse.taskId)
           completion(.success(newUpdatedTaskId))
-          print(newUpdatedTaskId.taskId)
+          print("newUpdatedTaskId \(newUpdatedTaskId.taskId) ERRORAS UPDATE FUNC SUCCESS")
+
 
         case .failure(let error):
           completion(.failure(error))
-          print("error updating task: \(error.localizedDescription)")
+          print("error updating task: \(error.localizedDescription)  ERRORAS UPDATE FUNC FAILURE")
       }
     }
   }
@@ -296,8 +299,7 @@ print(data)
   static func fetchingUserTasks(url: URL, completion: @escaping (Tasks) -> Void) {
 
     let session = URLSession.shared
-    //http://134.122.94.77/api/Task/userTasks?userId=93 <--- Dokumentacija
-    //http://134.122.94.77/api/Task/?userId=93 <--- MES
+
     let dataTask = session.dataTask(with: url) { data, response, error in
       DispatchQueue.main.async {
         guard let data = data else { return }
@@ -305,7 +307,7 @@ print(data)
           let parsingData = try JSONDecoder().decode(Tasks.self, from: data)
           completion(parsingData)
         } catch {
-//          print(error.localizedDescription)
+
         }
       }
     }

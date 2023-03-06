@@ -10,6 +10,9 @@ import UIKit
 
 class UpdateTaskViewController: UIViewController {
 
+
+let taskVC = TaskViewController()
+
   var taskId: Int?
   var user: NewUserId?
   
@@ -20,108 +23,82 @@ class UpdateTaskViewController: UIViewController {
   @IBOutlet weak var timeTextField: UITextField!
   @IBOutlet weak var updateButton: UIButton!
 
-  var newTitleText: String?
-  var newDescriptionText: String?
-  var newEstimateMinutes: Int?
-  var newLoggedTime: Int?
-  var isDone: Bool? 
+
+
+  func setupPlaceholders() {
+    titleTextField.placeholder = "Title"
+    descriptionTextField.placeholder = "Description"
+    minutesTextField.placeholder = "Estimated minutes"
+    timeTextField.placeholder = "Logged time"
+  }
+
 
   @IBAction func updateButtonTapped(_ sender: Any) {
 
-   if let minutesTextField = minutesTextField, let timeTextField = timeTextField {
-     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-       if textField == textField {
-         let allowedCharacters = "0123456789"
-         let allowedCharactersSet = CharacterSet(charactersIn: allowedCharacters)
-         let typedCharactersSet = CharacterSet(charactersIn: allowedCharacters)
-         let typedCharactersIn = CharacterSet(charactersIn: string)
-         let numbers = allowedCharactersSet.isSuperset(of: typedCharactersSet)
-         return numbers
+    guard let userId = self.user?.userId, let taskId = self.taskId else { return }
+    print(userId)
+    print(taskId)
+
+    let newTitleText: String?
+    let newDescriptionText: String?
+    let newEstimateMinutes: Int?
+    let newLoggedTime: Int?
+    let isDone: Bool? = false
+
+    let theMinutesText = minutesTextField.text ?? ""
+    let theLoggedText = timeTextField.text ?? ""
+
+
+
+    newTitleText = titleTextField.text
+    newDescriptionText = descriptionTextField.text
+    newEstimateMinutes = Int(theMinutesText) ?? 0
+    newLoggedTime = Int(theLoggedText) ?? 0
+
+
+
+    guard let newTitleText = newTitleText, !newTitleText.isEmpty,
+          let newDescriptionText = newDescriptionText, !newDescriptionText.isEmpty,
+          let newEstimateMinutes = newEstimateMinutes,
+          let newLoggedTime = newLoggedTime,
+          let isDone = isDone else { return }
+
+
+
+    print("Data from text fields: \(String(describing: newTitleText)), \(String(describing: newDescriptionText)), \(String(describing: newEstimateMinutes)), \(String(describing: newLoggedTime)), \(String(describing: isDone))")
+
+    TaskServiceAPI.updateTask(id: taskId, title: newTitleText, description: newDescriptionText, estimateMinutes: newEstimateMinutes, assigneeId: userId, loggedTime: newLoggedTime, isDone: isDone) {  [weak self] result in
+       guard let self = self  else {
+         print("mano dabartinis task id yra: \(taskId)")
+         return }
+
+       print("mano dabartinis task id yra: \(String(describing: taskId))")
+
+       switch result {
+         case .success(_):
+//           print("added new task with id: \(updatedTask.taskId)")
+           UIAlertController.showErrorAlert(title: "Success!", message: "Your task was updated", controller: self)
+//           tableView.reloadData()
+//           self.navigationController?.dismiss(animated: true)
+         case .failure(let error):
+           UIAlertController.showErrorAlert(title: "Error with status code: \(error.statusCode)", message: error.localizedDescription, controller: self)
+           self.navigationController?.dismiss(animated: true)
+           self.tabBarController?.dismiss(animated: false)
+      print("error \(error.localizedDescription)")
+           print("error \(error.statusCode)")
        }
-       return true
-     }
-
-
-
-         var theMinutesText = minutesTextField.text ?? ""
-     var theLoggedText = timeTextField.text ?? ""
-         var minutesInt = Int(theMinutesText) ?? 0
-     var timeInt = Int(theLoggedText) ?? 0
-         self.tableView.reloadData()
-
-     minutesTextField.placeholder = "Estimated minutes"
-     timeTextField.placeholder = "Logged time"
-         timeInt = newLoggedTime ?? 5
-         minutesInt = newEstimateMinutes ?? 5
-         print(newEstimateMinutes)
-
-////////////////////////////////////////////////////////////
-//     guard let alertTextFields = alertTitle.textFields, alertTextFields.count == 1,
-//           let descriptionTextFields = alertDescription.textFields, descriptionTextFields.count == 1,
-//           let minutesTextFields = alertEstimatedMinutes.textFields, minutesTextFields.count == 1
-//     else {
-//return
-//     }
-
-//     let newTitle = alertTextFields[0]
-//     let newDescription = descriptionTextFields[0]
-//     let newMinutes = minutesTextFields[0]
-
-     guard let title = titleTextField.text, !title.isEmpty,
-            let description = descriptionTextField.text, !description.isEmpty,
-
-           let estimatedMinutesText = minutesTextField.text, !estimatedMinutesText.isEmpty,
-           let loggedTime = timeTextField.text, !loggedTime.isEmpty,
-           let newLoggedTimeInt = Int(loggedTime),
-           let newEstimatedMinutesInt = Int(estimatedMinutesText)
-     else {
-print("Empty textField")
-return
-     }
-
-     if let userId = self.user?.userId {
-       TaskServiceAPI.updateTask(id: self.taskId ?? -1, title: title, description: description, estimateMinutes: newEstimatedMinutesInt, assigneeId: userId, loggedTime: newLoggedTimeInt, isDone: false) { [weak self] result in
-        guard let self else { print("griztu",
-                                    print("mano dabartinis task id yra: \(String(describing: self?.taskId))"))
-          return }
-
-        print("mano dabartinis task id yra: \(String(describing: self.taskId))")
-
-        switch result {
-          case .success(let updatedTask):
-            print("added new task with id: \(updatedTask.taskId)")
-            UIAlertController.showErrorAlert(title: "Success!", message: "Your task was updated", controller: self)
-            self.tableView.reloadData()
-          case .failure(let error):
-            UIAlertController.showErrorAlert(title: "Error with status code: \(String(describing: error.statusCode))", message: error.localizedDescription, controller: self)
-            print("error \(error.localizedDescription)")
-            print("error \(error.statusCode)")
-        }
-
-      }
-     }
-
-
-   }
-
-
-
+    }
   }
+
+
   override func viewDidLoad() {
     super.viewDidLoad()
-//    initTableView()
+
     self.tableView.rowHeight = 55.0
     updateButton.layer.shadowRadius = 4
     adjustButton()
+    setupPlaceholders()
   }
-
-  override func viewWillAppear(_ animated: Bool) {
-    print("Idomu: \(taskId)")
-  }
-
-//  override func viewDidAppear(_ animated: Bool) {
-//    print("Idomu: \(selectedTaskId)")
-//  }
 
   func adjustButton() {
     updateButton.layer.cornerRadius = 20
@@ -130,8 +107,6 @@ return
     updateButton.layer.shadowOffset = CGSize(width: 2, height: 4)
     updateButton.layer.shadowOpacity = 0.7
   }
-
-
 
   let tableView: UITableView = {
       let table = UITableView()
@@ -146,7 +121,6 @@ return
       textField.font = UIFont.systemFont(ofSize: 20)
       return textField
   }()
-
 
 
   func initTableView(){

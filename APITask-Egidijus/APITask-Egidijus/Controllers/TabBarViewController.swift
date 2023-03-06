@@ -16,7 +16,9 @@ class TabBarViewController: UITabBarController {
     let userVC = UserViewController()
 
 
+
   override func viewDidLoad() {
+    tasksVC.updateTaskVC = updateTaskVC
     super.viewDidLoad()
 reloadInputViews()
     tasksVC.title = "Tasks"
@@ -35,7 +37,7 @@ reloadInputViews()
     func setUser(_ user: NewUserId) {
         tasksVC.user = user
         userVC.user = user
-      updateTaskVC.user = user
+        updateTaskVC.user = user
     }
 
   @objc func addTapped() {
