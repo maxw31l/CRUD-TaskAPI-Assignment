@@ -18,6 +18,6 @@ struct Task: Decodable {
   let estimateMinutes: Int
   let loggedTime: Int
   let isDone: Bool
-//  let userInfo: UserInfo
+  let userInfo: UserInfo
 }
 

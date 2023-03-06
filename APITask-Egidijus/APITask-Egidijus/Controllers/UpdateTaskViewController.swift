@@ -15,6 +15,7 @@ class UpdateTaskViewController: UIViewController {
   @IBOutlet weak var minutesTextField: UITextField!
   @IBOutlet weak var timeTextField: UITextField!
   @IBOutlet weak var updateButton: UIButton!
+  @IBOutlet weak var UserPickerOutlet: UIPickerView!
 
   let taskVC = TaskViewController()
   var taskId: Int?
@@ -78,8 +79,6 @@ class UpdateTaskViewController: UIViewController {
           UIAlertController.showErrorAlert(title: "Error with status code: \(error.statusCode)",
                                            message: error.localizedDescription,
                                            controller: self)
-//          self.navigationController?.dismiss(animated: true)
-//          self.tabBarController?.dismiss(animated: false)
       }
     }
   }

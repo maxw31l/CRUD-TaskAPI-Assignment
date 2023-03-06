@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UpdateTaskViewController" customModule="APITask_Egidijus">
             <connections>
+                <outlet property="UserPickerOutlet" destination="SwP-OL-vbn" id="YLF-qs-A7D"/>
                 <outlet property="descriptionTextField" destination="zIP-S3-sHL" id="EvV-r1-6BU"/>
                 <outlet property="minutesTextField" destination="mRf-9L-Lbe" id="Qp8-S1-yq6"/>
                 <outlet property="timeTextField" destination="rDe-Ju-ThP" id="jf0-Co-Nn2"/>

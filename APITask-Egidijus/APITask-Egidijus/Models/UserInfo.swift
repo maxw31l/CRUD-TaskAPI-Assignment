@@ -7,7 +7,7 @@
 
 import Foundation
 
-//struct UserInfo: Decodable {
-//  var id: Int
-//  var username: String
-//}
+struct UserInfo: Decodable {
+  var id: Int
+  var username: String
+}

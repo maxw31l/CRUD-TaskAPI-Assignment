@@ -343,6 +343,10 @@ struct URLBuilder {
   static func getTaskURL(withId id: Int) -> URL {
     URL(string: kURLStringTask + "userTasks?userId=\(id)")!
   }
+
+  static func getUserURL(withId id: Int) -> URL {
+    URL(string: kURLStringTask + "\(id)")!
+  }
   
   static func postTaskURL() -> URL {
     URL(string: kURLStringTask)!
