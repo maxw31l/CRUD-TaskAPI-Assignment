@@ -10,6 +10,8 @@
 		ED0C3F6A29B2437000B6EDCD /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0C3F6929B2437000B6EDCD /* NetworkError.swift */; };
 		ED0C3F6C29B243AB00B6EDCD /* AccessRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0C3F6B29B243AB00B6EDCD /* AccessRequest.swift */; };
 		ED3C464129B64DF700DBB079 /* TaskAccessRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3C464029B64DF700DBB079 /* TaskAccessRequest.swift */; };
+		ED3C464829B64FDD00DBB079 /* TaskViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3C464729B64FDD00DBB079 /* TaskViewControllerExtension.swift */; };
+		ED3C464A29B651AE00DBB079 /* AlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3C464929B651AE00DBB079 /* AlertControllerExtension.swift */; };
 		EDAFBC8F29B547F5007C4A8C /* UpdateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAFBC8E29B547F5007C4A8C /* UpdateTaskViewController.swift */; };
 		EDAFBC9329B56414007C4A8C /* UpdateTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDAFBC9229B56414007C4A8C /* UpdateTaskViewController.xib */; };
 		EDC36CDB29B0A36F008DC07E /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC36CDA29B0A36F008DC07E /* ListCell.swift */; };
@@ -29,7 +31,6 @@
 		EDCD372F29AFEE3E000D77DA /* AuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDCD372E29AFEE3E000D77DA /* AuthenticationViewController.xib */; };
 		EDCD373C29B0792F000D77DA /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCD373A29B0792F000D77DA /* UserViewController.swift */; };
 		EDCD373D29B0792F000D77DA /* UserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDCD373B29B0792F000D77DA /* UserViewController.xib */; };
-		EDD869A029B0B478009EB9C9 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD8699F29B0B478009EB9C9 /* UIAlertController.swift */; };
 		EDD869A229B0D192009EB9C9 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD869A129B0D192009EB9C9 /* Task.swift */; };
 		EDD869A429B0D296009EB9C9 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD869A329B0D296009EB9C9 /* UserInfo.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +39,8 @@
 		ED0C3F6929B2437000B6EDCD /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		ED0C3F6B29B243AB00B6EDCD /* AccessRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessRequest.swift; sourceTree = "<group>"; };
 		ED3C464029B64DF700DBB079 /* TaskAccessRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskAccessRequest.swift; sourceTree = "<group>"; };
+		ED3C464729B64FDD00DBB079 /* TaskViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewControllerExtension.swift; sourceTree = "<group>"; };
+		ED3C464929B651AE00DBB079 /* AlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerExtension.swift; sourceTree = "<group>"; };
 		EDAFBC8E29B547F5007C4A8C /* UpdateTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTaskViewController.swift; sourceTree = "<group>"; };
 		EDAFBC9229B56414007C4A8C /* UpdateTaskViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpdateTaskViewController.xib; sourceTree = "<group>"; };
 		EDC36CDA29B0A36F008DC07E /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
@@ -59,7 +62,6 @@
 		EDCD372E29AFEE3E000D77DA /* AuthenticationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthenticationViewController.xib; sourceTree = "<group>"; };
 		EDCD373A29B0792F000D77DA /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		EDCD373B29B0792F000D77DA /* UserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserViewController.xib; sourceTree = "<group>"; };
-		EDD8699F29B0B478009EB9C9 /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		EDD869A129B0D192009EB9C9 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		EDD869A329B0D296009EB9C9 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,11 +87,13 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		ED3C464229B64E6F00DBB079 /* New Group */ = {
+		ED3C464629B64FBE00DBB079 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				ED3C464729B64FDD00DBB079 /* TaskViewControllerExtension.swift */,
+				ED3C464929B651AE00DBB079 /* AlertControllerExtension.swift */,
 			);
-			path = "New Group";
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		EDAFBC9429B5D727007C4A8C /* Cells */ = {
@@ -130,14 +134,13 @@
 		EDCD370A29AFE163000D77DA /* APITask-Egidijus */ = {
 			isa = PBXGroup;
 			children = (
-				ED3C464229B64E6F00DBB079 /* New Group */,
-				EDCD371929AFE165000D77DA /* Info.plist */,
+				ED3C464629B64FBE00DBB079 /* Extensions */,
 				EDAFBC9429B5D727007C4A8C /* Cells */,
 				EDCD371F29AFE20C000D77DA /* Controllers */,
+				EDCD371929AFE165000D77DA /* Info.plist */,
 				EDCD372B29AFE80C000D77DA /* Models */,
 				EDCD372429AFE6DA000D77DA /* Service */,
 				EDC36CD929B0A31A008DC07E /* Supporting */,
-				EDD8699E29B0B466009EB9C9 /* UIAlertController */,
 				ED0C3F6F29B246F000B6EDCD /* Views */,
 			);
 			path = "APITask-Egidijus";
@@ -178,14 +181,6 @@
 				ED3C464029B64DF700DBB079 /* TaskAccessRequest.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		EDD8699E29B0B466009EB9C9 /* UIAlertController */ = {
-			isa = PBXGroup;
-			children = (
-				EDD8699F29B0B478009EB9C9 /* UIAlertController.swift */,
-			);
-			path = UIAlertController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,15 +264,16 @@
 				EDD869A429B0D296009EB9C9 /* UserInfo.swift in Sources */,
 				EDCC9EE729B4189F0062B324 /* NewUpdatedTaskId.swift in Sources */,
 				EDD869A229B0D192009EB9C9 /* Task.swift in Sources */,
-				EDD869A029B0B478009EB9C9 /* UIAlertController.swift in Sources */,
 				EDCC9EE129B401690062B324 /* NewTaskId.swift in Sources */,
 				EDCD372A29AFE7FA000D77DA /* NewUserId.swift in Sources */,
 				EDCD372629AFE6E6000D77DA /* TaskServiceAPI.swift in Sources */,
+				ED3C464829B64FDD00DBB079 /* TaskViewControllerExtension.swift in Sources */,
 				ED3C464129B64DF700DBB079 /* TaskAccessRequest.swift in Sources */,
 				EDC36CDB29B0A36F008DC07E /* ListCell.swift in Sources */,
 				ED0C3F6A29B2437000B6EDCD /* NetworkError.swift in Sources */,
 				EDCD370C29AFE163000D77DA /* AppDelegate.swift in Sources */,
 				EDCC9EE329B418410062B324 /* UpdateTask.swift in Sources */,
+				ED3C464A29B651AE00DBB079 /* AlertControllerExtension.swift in Sources */,
 				EDCD370E29AFE163000D77DA /* SceneDelegate.swift in Sources */,
 				EDAFBC8F29B547F5007C4A8C /* UpdateTaskViewController.swift in Sources */,
 				ED0C3F6C29B243AB00B6EDCD /* AccessRequest.swift in Sources */,

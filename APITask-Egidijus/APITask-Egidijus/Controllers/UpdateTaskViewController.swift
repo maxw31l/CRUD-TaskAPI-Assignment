@@ -20,6 +20,14 @@ class UpdateTaskViewController: UIViewController {
   var taskId: Int?
   var user: NewUserId?
 
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    self.tableView.rowHeight = 55.0
+    updateButton.layer.shadowRadius = 4
+    adjustButton()
+    setupPlaceholders()
+  }
+
   func setupPlaceholders() {
     titleTextField.placeholder = "Title"
     descriptionTextField.placeholder = "Description"
@@ -76,14 +84,6 @@ class UpdateTaskViewController: UIViewController {
     }
   }
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    self.tableView.rowHeight = 55.0
-    updateButton.layer.shadowRadius = 4
-    adjustButton()
-    setupPlaceholders()
-  }
-
   func adjustButton() {
     updateButton.layer.cornerRadius = 20
     updateButton.layer.shadowRadius = 4
@@ -117,7 +117,6 @@ class UpdateTaskViewController: UIViewController {
       tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
       tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
       tableView.bottomAnchor.constraint(equalTo: updateButton.topAnchor)
-
     ])
   }
 }

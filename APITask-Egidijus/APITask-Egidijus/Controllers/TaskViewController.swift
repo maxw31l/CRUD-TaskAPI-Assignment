@@ -14,15 +14,6 @@ class TaskViewController: UIViewController {
   var tabBarVC: TabBarViewController!
   var user: NewUserId?
 
-  var userTasksArray: [Task] = []
-  private let tableView: UITableView = {
-    let tableView = UITableView()
-    tableView.backgroundColor = .systemBackground
-    tableView.allowsSelection = true
-
-    return tableView
-  }()
-
   override func viewDidLoad() {
     super.viewDidLoad()
     self.setupUI()
@@ -48,6 +39,15 @@ class TaskViewController: UIViewController {
       }
     }
   }
+
+  var userTasksArray: [Task] = []
+  private let tableView: UITableView = {
+    let tableView = UITableView()
+    tableView.backgroundColor = .systemBackground
+    tableView.allowsSelection = true
+
+    return tableView
+  }()
 
   @objc func presentCreateTask() {
   
@@ -80,7 +80,7 @@ class TaskViewController: UIViewController {
           let allowedCharactersSet = CharacterSet(charactersIn: allowedCharacters)
           let typedCharactersSet = CharacterSet(charactersIn: allowedCharacters)
           let typedCharactersIn = CharacterSet(charactersIn: string)
-          let numbers = allowedCharactersSet.isSuperset(of: typedCharactersSet)
+          let numbers = allowedCharactersSet.isSuperset(of: typedCharactersIn)
           return numbers
         }
         return true
@@ -105,8 +105,6 @@ class TaskViewController: UIViewController {
       let descriptionOptionNext = UIAlertAction(title: "Next", style: .default) { nextPressed in
 
         if nextPressed.isEnabled {
-
-
           self.present(alertEstimatedMinutes, animated: true)
         }
       }
@@ -201,55 +199,4 @@ return
   }
 }
 
-extension TaskViewController: UITableViewDelegate, UITableViewDataSource {
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-    return userTasksArray.count
-  }
-
-  func numberOfSections(in tableView: UITableView) -> Int {
-    return 1
-  }
-
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: ListCell.identifier) ?? UITableViewCell(style: .subtitle, reuseIdentifier: ListCell.identifier)
-    cell.textLabel?.text = userTasksArray[indexPath.row].title
-    cell.detailTextLabel?.text = userTasksArray[indexPath.row].description
-
-    return cell
-  }
-  func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-    return .delete
-  }
-
-  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-    if editingStyle == .delete {
-      tableView.beginUpdates()
-      let url = URL(string: "http://134.122.94.77/api/Task/\(String(describing: self.userTasksArray[indexPath.row].id))")!
-
-      TaskServiceAPI.deleteTask(url: url) { result in
-
-        switch result {
-          case .success(_):
-            tableView.deleteRows(at: [], with: .fade)
-
-            self.userTasksArray.remove(at: indexPath.row)
-            tableView.reloadData()
-          case .failure(_):
-            UIAlertController.showErrorAlert(title: "Error", message: "Something's wrong", controller: self.self)
-        }
-      }
-      tableView.endUpdates()
-    }
-    }
-
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    tableView.deselectRow(at: indexPath, animated: true)
-
-    let selectedTaskId = self.userTasksArray[indexPath.row].id
-
-    updateTaskVC.taskId = selectedTaskId
-    navigationController?.pushViewController(updateTaskVC, animated: true)
-  }
-}
 

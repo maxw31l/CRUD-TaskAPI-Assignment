@@ -79,9 +79,6 @@ class AuthenticationViewController: UIViewController {
         register()
       case .login:
         login()
-        //        registerTask()
-//        updateTask()
-
     }
   }
 
