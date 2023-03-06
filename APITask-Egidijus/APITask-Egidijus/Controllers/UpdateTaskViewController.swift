@@ -19,8 +19,97 @@ class UpdateTaskViewController: UIViewController {
   @IBOutlet weak var timeTextField: UITextField!
   @IBOutlet weak var updateButton: UIButton!
 
+  var newTitleText: String?
+  var newDescriptionText: String?
+  var newEstimateMinutes: Int?
+  var newLoggedTime: Int?
+  var isDone: Bool? 
+
+  @IBAction func updateButtonTapped(_ sender: Any) {
+
+   if let minutesTextField = minutesTextField, let timeTextField = timeTextField {
+     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+       if textField == textField {
+         let allowedCharacters = "0123456789"
+         let allowedCharactersSet = CharacterSet(charactersIn: allowedCharacters)
+         let typedCharactersSet = CharacterSet(charactersIn: allowedCharacters)
+         let typedCharactersIn = CharacterSet(charactersIn: string)
+         let numbers = allowedCharactersSet.isSuperset(of: typedCharactersSet)
+         return numbers
+       }
+       return true
+     }
 
 
+
+         var theMinutesText = minutesTextField.text ?? ""
+     var theLoggedText = timeTextField.text ?? ""
+         var minutesInt = Int(theMinutesText) ?? 0
+     var timeInt = Int(theLoggedText) ?? 0
+         self.tableView.reloadData()
+
+     minutesTextField.placeholder = "Estimated minutes"
+     timeTextField.placeholder = "Logged time"
+         timeInt = newLoggedTime ?? 5
+         minutesInt = newEstimateMinutes ?? 5
+         print(newEstimateMinutes)
+
+////////////////////////////////////////////////////////////
+//     guard let alertTextFields = alertTitle.textFields, alertTextFields.count == 1,
+//           let descriptionTextFields = alertDescription.textFields, descriptionTextFields.count == 1,
+//           let minutesTextFields = alertEstimatedMinutes.textFields, minutesTextFields.count == 1
+//     else {
+//return
+//     }
+
+//     let newTitle = alertTextFields[0]
+//     let newDescription = descriptionTextFields[0]
+//     let newMinutes = minutesTextFields[0]
+
+     guard let title = titleTextField.text, !title.isEmpty,
+            let description = descriptionTextField.text, !description.isEmpty,
+
+          let minutes = minutesTextField.text, !minutes.isEmpty,
+           let estimatedMinutesTex = minutesTextField.text,
+           let loggedTime = timeTextField.text,
+           let newLoggedTimeInt = Int(loggedTime),
+           let newEstimatedMinutesInt = Int(estimatedMinutesTex)
+     else {
+print("Empty textField")
+return
+     }
+     print(title)
+
+
+
+
+
+
+
+    TaskServiceAPI.updateTask(id: taskId ?? -1, title: title, description: description, estimateMinutes: newEstimatedMinutesInt, loggedTime: newLoggedTimeInt, isDone: false) { [weak self] result in
+      guard let self else { return }
+
+      print("mano dabartinis task id yra: \(String(describing: self.taskId))")
+
+      switch result {
+
+        case .success(let updatedTask):
+          print("added new task with id: \(updatedTask)")
+          UIAlertController.showErrorAlert(title: "Success!", message: "Your task was updated", controller: self)
+          self.tableView.reloadData()
+        case .failure(let error):
+          UIAlertController.showErrorAlert(title: "Error with status code: \(String(describing: error.statusCode))", message: error.localizedDescription, controller: self)
+          print("error \(error.localizedDescription)")
+          print("error \(error.statusCode)")
+      }
+
+    }
+
+   }
+
+
+
+  }
   override func viewDidLoad() {
     super.viewDidLoad()
 //    initTableView()

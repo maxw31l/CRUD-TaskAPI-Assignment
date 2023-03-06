@@ -14,7 +14,7 @@
                 <outlet property="minutesTextField" destination="mRf-9L-Lbe" id="Qp8-S1-yq6"/>
                 <outlet property="timeTextField" destination="rDe-Ju-ThP" id="jf0-Co-Nn2"/>
                 <outlet property="titleTextField" destination="Lmy-LD-7fJ" id="xNM-0G-SIH"/>
-                <outlet property="updateButton" destination="GlB-dz-aBG" id="Jos-eK-kNz"/>
+                <outlet property="updateButton" destination="GlB-dz-aBG" id="qpP-p8-IsM"/>
                 <outlet property="view" destination="iN0-l3-epB" id="YYX-FA-GYq"/>
             </connections>
         </placeholder>
@@ -34,6 +34,9 @@
                     <buttonConfiguration key="configuration" style="filled" title="Update">
                         <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </buttonConfiguration>
+                    <connections>
+                        <action selector="updateButtonTapped:" destination="-1" eventType="touchUpInside" id="1ys-Mi-tdt"/>
+                    </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HU0-5o-Ooe">
                     <rect key="frame" x="24" y="83" width="345" height="212"/>
