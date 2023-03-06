@@ -7,16 +7,6 @@
 
 import Foundation
 
-
-
-//struct Task {
-//  let title: String
-//  let description: String
-//  let estimatedMinutes: Int
-//  let assigneeId: Int
-//}
-
-
 struct Tasks: Decodable {
   let tasks: [Task]
 }

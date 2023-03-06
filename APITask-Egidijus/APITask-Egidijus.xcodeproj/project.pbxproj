@@ -11,19 +11,11 @@
 		ED0C3F6C29B243AB00B6EDCD /* AccessRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0C3F6B29B243AB00B6EDCD /* AccessRequest.swift */; };
 		EDAFBC8F29B547F5007C4A8C /* UpdateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAFBC8E29B547F5007C4A8C /* UpdateTaskViewController.swift */; };
 		EDAFBC9329B56414007C4A8C /* UpdateTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDAFBC9229B56414007C4A8C /* UpdateTaskViewController.xib */; };
-		EDAFBC9729B5D755007C4A8C /* TitleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAFBC9529B5D755007C4A8C /* TitleViewCell.swift */; };
-		EDAFBC9829B5D755007C4A8C /* TitleViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDAFBC9629B5D755007C4A8C /* TitleViewCell.xib */; };
-		EDAFBC9A29B5DF9D007C4A8C /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAFBC9929B5DF9D007C4A8C /* DescriptionCell.swift */; };
-		EDAFBC9C29B5DFC3007C4A8C /* LoggedTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAFBC9B29B5DFC3007C4A8C /* LoggedTimeCell.swift */; };
-		EDAFBC9E29B5E16A007C4A8C /* EstimatedMinutesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAFBC9D29B5E16A007C4A8C /* EstimatedMinutesCell.swift */; };
 		EDC36CDB29B0A36F008DC07E /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC36CDA29B0A36F008DC07E /* ListCell.swift */; };
 		EDCC9EDD29B3FDDC0062B324 /* AccessTaskRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCC9EDC29B3FDDC0062B324 /* AccessTaskRequest.swift */; };
-		EDCC9EDF29B3FE1B0062B324 /* NewTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCC9EDE29B3FE1B0062B324 /* NewTask.swift */; };
 		EDCC9EE129B401690062B324 /* NewTaskId.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCC9EE029B401690062B324 /* NewTaskId.swift */; };
 		EDCC9EE329B418410062B324 /* UpdateTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCC9EE229B418410062B324 /* UpdateTask.swift */; };
-		EDCC9EE529B4184E0062B324 /* UpdatedTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCC9EE429B4184E0062B324 /* UpdatedTask.swift */; };
 		EDCC9EE729B4189F0062B324 /* NewUpdatedTaskId.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCC9EE629B4189F0062B324 /* NewUpdatedTaskId.swift */; };
-		EDCC9EE929B47E4B0062B324 /* createTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCC9EE829B47E4A0062B324 /* createTaskViewController.swift */; };
 		EDCD370C29AFE163000D77DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCD370B29AFE163000D77DA /* AppDelegate.swift */; };
 		EDCD370E29AFE163000D77DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCD370D29AFE163000D77DA /* SceneDelegate.swift */; };
 		EDCD371029AFE163000D77DA /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCD370F29AFE163000D77DA /* TabBarViewController.swift */; };
@@ -46,19 +38,11 @@
 		ED0C3F6B29B243AB00B6EDCD /* AccessRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessRequest.swift; sourceTree = "<group>"; };
 		EDAFBC8E29B547F5007C4A8C /* UpdateTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTaskViewController.swift; sourceTree = "<group>"; };
 		EDAFBC9229B56414007C4A8C /* UpdateTaskViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpdateTaskViewController.xib; sourceTree = "<group>"; };
-		EDAFBC9529B5D755007C4A8C /* TitleViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewCell.swift; sourceTree = "<group>"; };
-		EDAFBC9629B5D755007C4A8C /* TitleViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleViewCell.xib; sourceTree = "<group>"; };
-		EDAFBC9929B5DF9D007C4A8C /* DescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
-		EDAFBC9B29B5DFC3007C4A8C /* LoggedTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedTimeCell.swift; sourceTree = "<group>"; };
-		EDAFBC9D29B5E16A007C4A8C /* EstimatedMinutesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimatedMinutesCell.swift; sourceTree = "<group>"; };
 		EDC36CDA29B0A36F008DC07E /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 		EDCC9EDC29B3FDDC0062B324 /* AccessTaskRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTaskRequest.swift; sourceTree = "<group>"; };
-		EDCC9EDE29B3FE1B0062B324 /* NewTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTask.swift; sourceTree = "<group>"; };
 		EDCC9EE029B401690062B324 /* NewTaskId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskId.swift; sourceTree = "<group>"; };
 		EDCC9EE229B418410062B324 /* UpdateTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTask.swift; sourceTree = "<group>"; };
-		EDCC9EE429B4184E0062B324 /* UpdatedTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatedTask.swift; sourceTree = "<group>"; };
 		EDCC9EE629B4189F0062B324 /* NewUpdatedTaskId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUpdatedTaskId.swift; sourceTree = "<group>"; };
-		EDCC9EE829B47E4A0062B324 /* createTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = createTaskViewController.swift; sourceTree = "<group>"; };
 		EDCD370829AFE163000D77DA /* APITask-Egidijus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "APITask-Egidijus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDCD370B29AFE163000D77DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDCD370D29AFE163000D77DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,12 +86,7 @@
 		EDAFBC9429B5D727007C4A8C /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				EDAFBC9529B5D755007C4A8C /* TitleViewCell.swift */,
-				EDAFBC9629B5D755007C4A8C /* TitleViewCell.xib */,
-				EDAFBC9929B5DF9D007C4A8C /* DescriptionCell.swift */,
-				EDAFBC9B29B5DFC3007C4A8C /* LoggedTimeCell.swift */,
 				EDC36CDA29B0A36F008DC07E /* ListCell.swift */,
-				EDAFBC9D29B5E16A007C4A8C /* EstimatedMinutesCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -142,14 +121,14 @@
 		EDCD370A29AFE163000D77DA /* APITask-Egidijus */ = {
 			isa = PBXGroup;
 			children = (
-				EDAFBC9429B5D727007C4A8C /* Cells */,
-				ED0C3F6F29B246F000B6EDCD /* Views */,
-				EDCD371F29AFE20C000D77DA /* Controllers */,
 				EDCD371929AFE165000D77DA /* Info.plist */,
+				EDAFBC9429B5D727007C4A8C /* Cells */,
+				EDCD371F29AFE20C000D77DA /* Controllers */,
 				EDCD372B29AFE80C000D77DA /* Models */,
 				EDCD372429AFE6DA000D77DA /* Service */,
 				EDC36CD929B0A31A008DC07E /* Supporting */,
 				EDD8699E29B0B466009EB9C9 /* UIAlertController */,
+				ED0C3F6F29B246F000B6EDCD /* Views */,
 			);
 			path = "APITask-Egidijus";
 			sourceTree = "<group>";
@@ -161,7 +140,6 @@
 				EDCD372229AFE686000D77DA /* AuthenticationViewController.swift */,
 				EDCD370F29AFE163000D77DA /* TabBarViewController.swift */,
 				EDCD373A29B0792F000D77DA /* UserViewController.swift */,
-				EDCC9EE829B47E4A0062B324 /* createTaskViewController.swift */,
 				EDAFBC8E29B547F5007C4A8C /* UpdateTaskViewController.swift */,
 			);
 			path = Controllers;
@@ -184,10 +162,8 @@
 				ED0C3F6929B2437000B6EDCD /* NetworkError.swift */,
 				ED0C3F6B29B243AB00B6EDCD /* AccessRequest.swift */,
 				EDCC9EDC29B3FDDC0062B324 /* AccessTaskRequest.swift */,
-				EDCC9EDE29B3FE1B0062B324 /* NewTask.swift */,
 				EDCC9EE029B401690062B324 /* NewTaskId.swift */,
 				EDCC9EE229B418410062B324 /* UpdateTask.swift */,
-				EDCC9EE429B4184E0062B324 /* UpdatedTask.swift */,
 				EDCC9EE629B4189F0062B324 /* NewUpdatedTaskId.swift */,
 			);
 			path = Models;
@@ -262,7 +238,6 @@
 				EDCD372F29AFEE3E000D77DA /* AuthenticationViewController.xib in Resources */,
 				EDCD373D29B0792F000D77DA /* UserViewController.xib in Resources */,
 				EDCD371829AFE165000D77DA /* LaunchScreen.storyboard in Resources */,
-				EDAFBC9829B5D755007C4A8C /* TitleViewCell.xib in Resources */,
 				EDAFBC9329B56414007C4A8C /* UpdateTaskViewController.xib in Resources */,
 				EDCD371529AFE165000D77DA /* Assets.xcassets in Resources */,
 			);
@@ -277,19 +252,13 @@
 			files = (
 				EDCC9EDD29B3FDDC0062B324 /* AccessTaskRequest.swift in Sources */,
 				EDCD372329AFE686000D77DA /* AuthenticationViewController.swift in Sources */,
-				EDAFBC9729B5D755007C4A8C /* TitleViewCell.swift in Sources */,
 				EDCD373C29B0792F000D77DA /* UserViewController.swift in Sources */,
 				EDCD372D29AFE888000D77DA /* TaskViewController.swift in Sources */,
 				EDCD371029AFE163000D77DA /* TabBarViewController.swift in Sources */,
 				EDD869A429B0D296009EB9C9 /* UserInfo.swift in Sources */,
-				EDCC9EDF29B3FE1B0062B324 /* NewTask.swift in Sources */,
-				EDAFBC9E29B5E16A007C4A8C /* EstimatedMinutesCell.swift in Sources */,
-				EDCC9EE929B47E4B0062B324 /* createTaskViewController.swift in Sources */,
 				EDCC9EE729B4189F0062B324 /* NewUpdatedTaskId.swift in Sources */,
 				EDD869A229B0D192009EB9C9 /* Task.swift in Sources */,
-				EDAFBC9C29B5DFC3007C4A8C /* LoggedTimeCell.swift in Sources */,
 				EDD869A029B0B478009EB9C9 /* UIAlertController.swift in Sources */,
-				EDCC9EE529B4184E0062B324 /* UpdatedTask.swift in Sources */,
 				EDCC9EE129B401690062B324 /* NewTaskId.swift in Sources */,
 				EDCD372A29AFE7FA000D77DA /* NewUserId.swift in Sources */,
 				EDCD372629AFE6E6000D77DA /* TaskServiceAPI.swift in Sources */,
@@ -300,7 +269,6 @@
 				EDCD370E29AFE163000D77DA /* SceneDelegate.swift in Sources */,
 				EDAFBC8F29B547F5007C4A8C /* UpdateTaskViewController.swift in Sources */,
 				ED0C3F6C29B243AB00B6EDCD /* AccessRequest.swift in Sources */,
-				EDAFBC9A29B5DF9D007C4A8C /* DescriptionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

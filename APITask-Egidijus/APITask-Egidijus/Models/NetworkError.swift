@@ -14,6 +14,7 @@ struct NetworkError: Error {
     case unknown
     case decodingFailed
   }
+
   let message: String?
   let statusCode: Int
   let errorType: ErrorType

@@ -14,8 +14,12 @@ let registerPath = "User/register"
 
 class TaskServiceAPI {
 
-  // GET
-  public static func get(url: URL, completion: @escaping (Data?) -> Void) {
+
+  /// GET method
+  /// - Parameters:
+  ///   - url: base URL
+  ///   - completion: Fetches data from the server
+  static func get(url: URL, completion: @escaping (Data?) -> Void) {
     URLSession.shared.dataTask(with: url) {
       data,
       response,
@@ -29,9 +33,13 @@ class TaskServiceAPI {
     }.resume()
   }
 
-  // POST
-  public static func postRequest(url: URL, body: Data?, completion: @escaping (Result<Data, NetworkError>) -> Void) {
 
+  /// POST method
+  /// - Parameters:
+  ///   - url: "http://134.122.94.77/api/Task/"
+  ///   - body: data
+  ///   - completion: Sets data into the server
+  static func postRequest(url: URL, body: Data?, completion: @escaping (Result<Data, NetworkError>) -> Void) {
     var request = URLRequest(url: url)
     request.httpMethod = "POST"
     request.httpBody = body
@@ -72,8 +80,15 @@ class TaskServiceAPI {
     }.resume()
   }
 
-  //PUT
-  public static func putRequest(url: URL, body: Data?, completion: @escaping (Result<Data, NetworkError>) -> Void) {
+
+  /// <#Description#>
+  /// - Parameters:
+  ///   - url: "http://134.122.94.77/api/Task/"
+  ///   - body: <#body description#>
+  ///   - completion: Updates data in the server
+  public static func putRequest(url: URL,
+                                body: Data?,
+                                completion: @escaping (Result<Data, NetworkError>) -> Void) {
 
     var request = URLRequest(url: url)
     request.httpMethod = "PUT"
@@ -91,7 +106,6 @@ class TaskServiceAPI {
           completion(.failure(.init(statusCode: statusCode, errorType: .unknown)))
           return
         }
-        print("PUT FUNC DATA PRINTED \(data.description)")
 
         let dataString = String(data: data, encoding: .utf8)
 
@@ -99,7 +113,6 @@ class TaskServiceAPI {
           completion(.failure(.init(statusCode: statusCode, errorType: .unknown)))
           return
         }
-        print("PUT FUNCD RESPONSE PRINTED \(httpResponse.description)")
 
         switch httpResponse.statusCode {
           case 200:
@@ -111,17 +124,16 @@ class TaskServiceAPI {
             // ERROR BAD REQUEST
             completion(.failure(.init(message: dataString, statusCode: statusCode, errorType: .badRequest)))
           default:
-//            completion(.failure(.init(statusCode: statusCode, errorType: .unknown)))
             break
         }
       }
     }.resume()
   }
 
-  static func registerUser(username: String, password: String, completion: @escaping (Result<NewUserId, NetworkError>) -> Void) {
-
+  static func registerUser(username: String,
+                           password: String,
+                           completion: @escaping (Result<NewUserId, NetworkError>) -> Void) {
     let url = URL(string: "http://134.122.94.77/api/user/register")!
-
     let registerRequest = AccessRequest(username: username, password: password)
     let data = try! JSONEncoder().encode(registerRequest)
 
@@ -148,12 +160,15 @@ class TaskServiceAPI {
     }
   }
 
-  static func createTask(title: String, description: String, estimateMinutes: Int, assigneeId: Int, completion: @escaping (Result<NewTaskId, NetworkError>) -> Void) {
-
+  static func createTask(title: String,
+                         description: String,
+                         estimateMinutes: Int,
+                         assigneeId: Int, completion: @escaping (Result<NewTaskId, NetworkError>) -> Void) {
     let url = URL(string: "http://134.122.94.77/api/Task/")!
-
-    let registerRequest = AccessTaskRequest(title: title, description: description, estimateMinutes: estimateMinutes, assigneeId: assigneeId)
-
+    let registerRequest = AccessTaskRequest(title: title,
+                                            description: description,
+                                            estimateMinutes: estimateMinutes,
+                                            assigneeId: assigneeId)
     let data = try! JSONEncoder().encode(registerRequest)
 
     TaskServiceAPI.postRequest(url: url, body: data) { result in
@@ -178,10 +193,10 @@ class TaskServiceAPI {
     }
   }
 
-  static func loginUser(username: String, password: String, completion: @escaping (Result<NewUserId, NetworkError>) -> Void) {
-
+  static func loginUser(username: String,
+                        password: String,
+                        completion: @escaping (Result<NewUserId, NetworkError>) -> Void) {
     let url = URL(string: "http://134.122.94.77/api/user/login")!
-
     let loginRequest = AccessRequest(username: username, password: password)
     let data = try! JSONEncoder().encode(loginRequest)
 
@@ -214,9 +229,16 @@ class TaskServiceAPI {
                          assigneeId: Int,
                          loggedTime: Int,
                          isDone: Bool, completion: @escaping (Result<NewTaskIdUpdateId, NetworkError>) -> Void) {
+
     let url = URL(string: "http://134.122.94.77/api/Task/")!
 
-    let requestToUpdateTask = UpdateTask(id: id, title: title, description: description, estimateMinutes: estimateMinutes, assigneeId: assigneeId, loggedTime: loggedTime, isDone: isDone)
+    let requestToUpdateTask = UpdateTask(id: id,
+                                         title: title,
+                                         description: description,
+                                         estimateMinutes: estimateMinutes,
+                                         assigneeId: assigneeId,
+                                         loggedTime: loggedTime,
+                                         isDone: isDone)
 
     let data = try! JSONEncoder().encode(requestToUpdateTask)
 
@@ -248,11 +270,11 @@ class TaskServiceAPI {
 
   static func deleteTask(url: URL, completion: @escaping (Result<Data, Error>) -> Void) {
     var request = URLRequest(url: url)
-  request.httpMethod = "DELETE"
-  request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+    request.httpMethod = "DELETE"
+    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
     URLSession.shared.dataTask(with: request) {
-        data,
+      data,
       response,
       error in
 
@@ -269,24 +291,24 @@ class TaskServiceAPI {
 
   static func deleteUser(url: URL, completion: @escaping (Result<Data, Error>) -> Void) {
 
-      var request = URLRequest(url: url)
+    var request = URLRequest(url: url)
     request.httpMethod = "DELETE"
     request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
-      URLSession.shared.dataTask(with: request) {
-          data,
-        response,
-        error in
+    URLSession.shared.dataTask(with: request) {
+      data,
+      response,
+      error in
 
-        DispatchQueue.main.async {
-          guard let data else {
-            let error = NSError(domain: "Error not found", code: 404)
-            completion(.failure(error))
-            return
-          }
-          completion(.success(data))
+      DispatchQueue.main.async {
+        guard let data else {
+          let error = NSError(domain: "Error not found", code: 404)
+          completion(.failure(error))
+          return
         }
-      }.resume()
+        completion(.success(data))
+      }
+    }.resume()
   }
 
   func buildURL(urlPath: String) -> URL? {
@@ -313,9 +335,6 @@ class TaskServiceAPI {
     }
     dataTask.resume()
   }
-
-
-
 }
 
 struct URLBuilder {
@@ -344,6 +363,4 @@ struct URLBuilder {
   static func createTaskURL() -> URL {
     URL(string: kURLStringTask)!
   }
-
-  
 }

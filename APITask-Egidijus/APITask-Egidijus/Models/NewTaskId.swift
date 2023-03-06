@@ -11,7 +11,6 @@ struct NewTaskId {
     var taskId: Int
 
     init(taskId: Int) {
-
         self.taskId = taskId
     }
 }

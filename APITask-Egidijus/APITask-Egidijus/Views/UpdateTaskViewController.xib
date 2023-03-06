@@ -38,9 +38,6 @@
                         <action selector="updateButtonTapped:" destination="-1" eventType="touchUpInside" id="1ys-Mi-tdt"/>
                     </connections>
                 </button>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HU0-5o-Ooe">
-                    <rect key="frame" x="24" y="83" width="345" height="212"/>
-                </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8aa-Uo-Mos" userLabel="Title View">
                     <rect key="frame" x="0.0" y="59" width="393" height="64"/>
                     <subviews>
@@ -150,10 +147,8 @@
                 <constraint firstItem="lij-QF-b3l" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="2oO-m1-FTA"/>
                 <constraint firstItem="lij-QF-b3l" firstAttribute="firstBaseline" secondItem="C9h-zu-BQK" secondAttribute="baseline" constant="8" symbolType="layoutAnchor" id="3Yb-CU-tPL"/>
                 <constraint firstItem="GlB-dz-aBG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="B5r-wZ-1Lx"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="HU0-5o-Ooe" secondAttribute="trailing" constant="24" id="C8f-Nw-eKU"/>
                 <constraint firstItem="b5C-Qt-fwJ" firstAttribute="leading" secondItem="cLA-O1-x8p" secondAttribute="leading" id="Fjt-0P-D9A"/>
                 <constraint firstItem="Ddq-YB-utL" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="G6G-m5-50q"/>
-                <constraint firstItem="HU0-5o-Ooe" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="24" id="IWI-RB-zfQ"/>
                 <constraint firstItem="C9h-zu-BQK" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="KQr-e5-YMB"/>
                 <constraint firstItem="8aa-Uo-Mos" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="LqP-kG-jA9"/>
                 <constraint firstItem="GlB-dz-aBG" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="300" id="Ocs-2Q-JIy"/>
@@ -162,10 +157,8 @@
                 <constraint firstAttribute="trailing" secondItem="Ddq-YB-utL" secondAttribute="trailing" id="S7r-TE-GIr"/>
                 <constraint firstItem="8aa-Uo-Mos" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="YUD-p1-MQ5"/>
                 <constraint firstItem="8aa-Uo-Mos" firstAttribute="baseline" secondItem="C9h-zu-BQK" secondAttribute="firstBaseline" constant="8" symbolType="layoutAnchor" id="dYn-CZ-yCU"/>
-                <constraint firstItem="GlB-dz-aBG" firstAttribute="top" secondItem="HU0-5o-Ooe" secondAttribute="bottom" constant="64" id="ejV-Be-D3m"/>
                 <constraint firstAttribute="trailing" secondItem="lij-QF-b3l" secondAttribute="trailing" id="fo8-zc-0UR"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="GlB-dz-aBG" secondAttribute="trailing" constant="24" id="nMg-sw-XnQ"/>
-                <constraint firstItem="HU0-5o-Ooe" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="reT-zr-HH5"/>
                 <constraint firstItem="zhf-Y2-y54" firstAttribute="leading" secondItem="cLA-O1-x8p" secondAttribute="leading" id="sfs-C6-7aE"/>
                 <constraint firstAttribute="trailing" secondItem="8aa-Uo-Mos" secondAttribute="trailing" id="zPo-9d-6Dz"/>
             </constraints>

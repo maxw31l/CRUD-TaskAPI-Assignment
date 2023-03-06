@@ -10,6 +10,5 @@ import UIKit
 class ListCell: UITableViewCell {
 
 static let identifier = "listCell"
-
 }
  
