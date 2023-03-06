@@ -308,32 +308,56 @@ extension TaskViewController: UITableViewDelegate, UITableViewDataSource {
     return .delete
   }
 
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-      if editingStyle == .delete {
-        tableView.beginUpdates()
-        let url = URL(string: "http://134.122.94.77/api/Task/\(String(describing: self.userTasksArray[indexPath.row].id))")!
-        print(url)
-        let taskId = userTasksArray[indexPath.row].id
+  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    if editingStyle == .delete {
+      tableView.beginUpdates()
+      let url = URL(string: "http://134.122.94.77/api/Task/\(String(describing: self.userTasksArray[indexPath.row].id))")!
+      print(url)
+      let taskId = userTasksArray[indexPath.row].id
 
-        TaskServiceAPI.deleteTask(url: url) { result in
-          
-          switch result {
-            case .success(_):
+      TaskServiceAPI.deleteTask(url: url) { result in
+
+        switch result {
+          case .success(_):
             tableView.deleteRows(at: [], with: .fade)
-              let x = self.userTasksArray[indexPath.row]
-              print(x)
-              self.userTasksArray.remove(at: indexPath.row)
-                  tableView.reloadData()
-            case .failure(_):
-              UIAlertController.showErrorAlert(title: "Error", message: "Something's wrong", controller: self.self)
-          }
+            let x = self.userTasksArray[indexPath.row]
+            print(x)
+            self.userTasksArray.remove(at: indexPath.row)
+            tableView.reloadData()
+          case .failure(_):
+            UIAlertController.showErrorAlert(title: "Error", message: "Something's wrong", controller: self.self)
         }
-        tableView.endUpdates()
       }
+      tableView.endUpdates()
+
+    }
+//    var indexPathForSelectedRow: IndexPath? { get } do {
+//      self.userTasksArray[indexPath.row].id
+//    }
+
+    var task: Int = userTasksArray[indexPath.row].id
+
+    print(task)
+
+
+//      if let selectedTaskId = indexPath.row {
+//print(selectedTaskId)
+//
+//      }
+
+
     }
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
+
+//    let indexPathForSelectedRow = self.tableView.indexPathForSelectedRow
+//    print(indexPathForSelectedRow)
+
+    let selectedTaskId = self.userTasksArray[indexPath.row].id
+    print(selectedTaskId)
+
+    
 
     let taskId = userTasksArray[indexPath.row].id
     let taskTitle = userTasksArray[indexPath.row].title

@@ -83,7 +83,6 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
    tf.placeholder = "Enter text here"
    tf.font = UIFont.systemFont(ofSize: 15)
 
-
   cell?.contentView.addSubview(tf)
   cell?.addSubview(tf)
 
@@ -96,6 +95,8 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
 func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return 4
   }
+
+
 
 
 }
