@@ -10,17 +10,32 @@ import UIKit
 
 class UpdateTaskViewController: UIViewController {
 
+  var taskId: Int?
 
+  @IBOutlet weak var titleTextField: UITextField!
+
+  @IBOutlet weak var descriptionTextField: UITextField!
+  @IBOutlet weak var minutesTextField: UITextField!
+  @IBOutlet weak var timeTextField: UITextField!
   @IBOutlet weak var updateButton: UIButton!
+
+
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    initTableView()
+//    initTableView()
     self.tableView.rowHeight = 55.0
     updateButton.layer.shadowRadius = 4
     adjustButton()
   }
 
+  override func viewWillAppear(_ animated: Bool) {
+    print("Idomu: \(taskId)")
+  }
+
+//  override func viewDidAppear(_ animated: Bool) {
+//    print("Idomu: \(selectedTaskId)")
+//  }
 
   func adjustButton() {
     updateButton.layer.cornerRadius = 20
@@ -49,7 +64,11 @@ class UpdateTaskViewController: UIViewController {
 
 
   func initTableView(){
-    tableView.register(UpdateTaskCell.self, forCellReuseIdentifier: UpdateTaskCell.identifier)
+    tableView.register(DescriptionCell.self, forCellReuseIdentifier: DescriptionCell.identifier)
+    tableView.register(TitleViewCell.self, forCellReuseIdentifier: TitleViewCell.identifier)
+    tableView.register(LoggedTimeCell.self, forCellReuseIdentifier: LoggedTimeCell.identifier)
+    tableView.register(EstimatedMinutesCell.self, forCellReuseIdentifier: EstimatedMinutesCell.identifier)
+
       view.addSubview(tableView)
       tableView.dataSource = self
     tableView.backgroundColor = .systemBackground
@@ -75,25 +94,52 @@ class UpdateTaskViewController: UIViewController {
 
 
 extension UpdateTaskViewController: UITableViewDataSource, UITableViewDelegate {
+
+
 func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-  let cell = tableView.dequeueReusableCell(withIdentifier: UpdateTaskCell.identifier, for: indexPath) as! UpdateTaskCell?
-  cell?.selectionStyle = .none
+
+
+
+  guard let titleCell = tableView.dequeueReusableCell(withIdentifier: TitleViewCell.identifier, for: indexPath) as! TitleViewCell? else { return UITableViewCell() }
+
+  tableView.indexPath(for: titleCell)
+
+  let descriptionCell = tableView.dequeueReusableCell(withIdentifier: DescriptionCell.identifier, for: indexPath) as! DescriptionCell?
+
+
+
+  let estimatedMinutesCell = tableView.dequeueReusableCell(withIdentifier: EstimatedMinutesCell.identifier, for: indexPath) as! EstimatedMinutesCell?
+
+
+  let loggedTimeCell = tableView.dequeueReusableCell(withIdentifier: LoggedTimeCell.identifier, for: indexPath) as! LoggedTimeCell?
+
+
+
 
    let tf = UITextField(frame: CGRect(x: 20, y: 0, width: 300, height: 20))
-   tf.placeholder = "Enter text here"
-   tf.font = UIFont.systemFont(ofSize: 15)
-
-  cell?.contentView.addSubview(tf)
-  cell?.addSubview(tf)
 
 
+//
+//   tf.placeholder = "Enter text here"
+//   tf.font = UIFont.systemFont(ofSize: 15)
+//  titleCell?.contentView.addSubview(tf)
+//  titleCell?.addSubview(tf)
 
 
-  return cell ?? UITableViewCell()
-  }
+//  descriptionCell?.placeholder = "Description"
+  return UITableViewCell()
+}
+
+
 
 func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return 4
+  }
+
+  func numberOfSections(in tableView: UITableView) -> Int {
+
+
+    return 1
   }
 
 

@@ -357,7 +357,9 @@ extension TaskViewController: UITableViewDelegate, UITableViewDataSource {
     let selectedTaskId = self.userTasksArray[indexPath.row].id
     print(selectedTaskId)
 
-    
+    updateTaskVC.taskId = selectedTaskId
+
+
 
     let taskId = userTasksArray[indexPath.row].id
     let taskTitle = userTasksArray[indexPath.row].title
@@ -370,6 +372,8 @@ extension TaskViewController: UITableViewDelegate, UITableViewDataSource {
 
 
     navigationController?.pushViewController(updateTaskVC, animated: true)
+
+
   }
 }
 
