@@ -147,19 +147,17 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="igx-g8-lVs" userLabel="AssigneeTextField">
-                            <rect key="frame" x="93.666666666666657" y="12" width="287.33333333333337" height="40"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
+                        <pickerView contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="SwP-OL-vbn">
+                            <rect key="frame" x="94" y="12" width="287" height="40"/>
+                        </pickerView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="igx-g8-lVs" secondAttribute="bottom" constant="12" id="EE0-kT-hUh"/>
-                        <constraint firstItem="igx-g8-lVs" firstAttribute="centerY" secondItem="pgJ-2y-Jum" secondAttribute="centerY" id="IVd-Lu-IVB"/>
-                        <constraint firstItem="igx-g8-lVs" firstAttribute="top" secondItem="Dod-YV-BX0" secondAttribute="top" constant="12" id="bU9-Xu-VmJ"/>
-                        <constraint firstAttribute="trailing" secondItem="igx-g8-lVs" secondAttribute="trailing" constant="12" id="d4H-lB-0J8"/>
-                        <constraint firstItem="igx-g8-lVs" firstAttribute="leading" secondItem="pgJ-2y-Jum" secondAttribute="trailing" constant="12" id="efu-QH-GGx"/>
+                        <constraint firstItem="SwP-OL-vbn" firstAttribute="top" secondItem="Dod-YV-BX0" secondAttribute="top" constant="12" id="Ef9-6Y-f5r"/>
+                        <constraint firstItem="SwP-OL-vbn" firstAttribute="centerY" secondItem="pgJ-2y-Jum" secondAttribute="centerY" id="LV5-co-pcI"/>
+                        <constraint firstAttribute="bottom" secondItem="SwP-OL-vbn" secondAttribute="bottom" constant="12" id="fKT-2U-MFf"/>
+                        <constraint firstAttribute="trailing" secondItem="SwP-OL-vbn" secondAttribute="trailing" constant="12" id="hgC-2F-WoP"/>
+                        <constraint firstItem="SwP-OL-vbn" firstAttribute="leading" secondItem="pgJ-2y-Jum" secondAttribute="trailing" constant="12" id="lxU-9w-9XL"/>
                     </constraints>
                 </view>
             </subviews>
