@@ -76,9 +76,21 @@ class UpdateTaskViewController: UIViewController {
 
 extension UpdateTaskViewController: UITableViewDataSource, UITableViewDelegate {
 func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: UpdateTaskCell.identifier, for: indexPath)
-  cell.selectionStyle = .none
-    return cell
+  let cell = tableView.dequeueReusableCell(withIdentifier: UpdateTaskCell.identifier, for: indexPath) as! UpdateTaskCell?
+  cell?.selectionStyle = .none
+
+   let tf = UITextField(frame: CGRect(x: 20, y: 0, width: 300, height: 20))
+   tf.placeholder = "Enter text here"
+   tf.font = UIFont.systemFont(ofSize: 15)
+
+
+  cell?.contentView.addSubview(tf)
+  cell?.addSubview(tf)
+
+
+
+
+  return cell ?? UITableViewCell()
   }
 
 func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
