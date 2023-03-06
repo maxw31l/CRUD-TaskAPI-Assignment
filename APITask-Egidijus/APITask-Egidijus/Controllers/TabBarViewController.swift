@@ -22,13 +22,17 @@ class TabBarViewController: UITabBarController {
     tasksVC.title = "Tasks"
     userVC.title = "User"
     updateTaskVC.title = "Task"
+
     self.setViewControllers([tasksVC, userVC], animated: false)
+
 
     guard let items = self.tabBar.items else { return }
     let images = ["rectangle.dock", "person"]
     for image in 0...1 {
       items[image].image = UIImage(systemName: images[image])
     }
+
+
     
     self.tabBar.backgroundColor = .systemGray6
   }

@@ -46,18 +46,12 @@ class AuthenticationViewController: UIViewController {
   }
 
   var currentState: State = .login
-  var stateIndex: Int = 1
 
   @IBAction func signLoginButtonTapped(_ sender: Any) {
-    if stateIndex >= 1 {
-      stateIndex -= 1
-    } else {
-      stateIndex += 1
-    }
 
-    if stateIndex == 0 {
+    if currentState == .login {
       currentState = .register
-    } else if stateIndex == 1 {
+    } else if currentState == .register {
       currentState = .login
     }
 

@@ -78,8 +78,8 @@ class UpdateTaskViewController: UIViewController {
           UIAlertController.showErrorAlert(title: "Error with status code: \(error.statusCode)",
                                            message: error.localizedDescription,
                                            controller: self)
-          self.navigationController?.dismiss(animated: true)
-          self.tabBarController?.dismiss(animated: false)
+//          self.navigationController?.dismiss(animated: true)
+//          self.tabBarController?.dismiss(animated: false)
       }
     }
   }

@@ -185,7 +185,7 @@ class TaskServiceAPI {
         case .failure(let error):
           completion(.failure(error))
       }
-    }
+    } 
   }
   
   static func loginUser(username: String,
@@ -254,6 +254,7 @@ class TaskServiceAPI {
           let newUpdatedTaskId = NewTaskIdUpdateId(taskId: taskResponse.taskId)
           completion(.success(newUpdatedTaskId))
           print("newUpdatedTaskId \(newUpdatedTaskId.taskId) ERRORAS UPDATE FUNC SUCCESS")
+
           
           
         case .failure(let error):

@@ -24,7 +24,7 @@ class TaskViewController: UIViewController {
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    print(self.user?.userId ?? 0)
+    self.tabBarController?.navigationItem.title = "Tasks"
 
     self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(
       image: UIImage(systemName: "plus.app"),
@@ -51,23 +51,23 @@ class TaskViewController: UIViewController {
 
   @objc func presentCreateTask() {
   
-    var newTitleText: String?
-    var newDescriptionText: String?
-    var newEstimateMinutes: Int?
+//    var newTitleText: String?
+//    var newDescriptionText: String?
+//    var newEstimateMinutes: Int?
 
     //ALERTS
       let alertTitle = UIAlertController(title: "Add a task", message: "Insert title", preferredStyle: .alert)
 
       alertTitle.addTextField {  textField in
         textField.placeholder = "Title"
-        textField.text = newTitleText
+//        textField.text = newTitleText
         self.tableView.reloadData()
       }
 
     let alertDescription = UIAlertController(title: "Add a task", message: "Insert description", preferredStyle: .alert)
       alertDescription.addTextField { textField in
         textField.placeholder = "Description"
-        textField.text = newDescriptionText
+//        textField.text = newDescriptionText
         self.tableView.reloadData()
       }
 
@@ -91,7 +91,7 @@ class TaskViewController: UIViewController {
           self.tableView.reloadData()
 
       minutesTextField.placeholder = "Estimated minutes"
-          minutesInt = newEstimateMinutes ?? 5
+//          minutesInt = newEstimateMinutes ?? 5
       }
 
       //ALERT OPTIONS

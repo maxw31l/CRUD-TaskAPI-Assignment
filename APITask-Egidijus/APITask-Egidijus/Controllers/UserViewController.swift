@@ -17,14 +17,11 @@ class UserViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     usernameLabel.text = user?.username
-    self.tabBarController?.navigationItem.title = "User"
-
-
   }
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    print(self.user?.userId ?? 0)
+    self.tabBarController?.navigationItem.title = "User"
     self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(
       image: UIImage(systemName: "trash"),
       style: .done,
