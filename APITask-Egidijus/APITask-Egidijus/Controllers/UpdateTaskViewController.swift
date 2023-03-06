@@ -11,7 +11,8 @@ import UIKit
 class UpdateTaskViewController: UIViewController {
 
   var taskId: Int?
-
+  var user: NewUserId?
+  
   @IBOutlet weak var titleTextField: UITextField!
 
   @IBOutlet weak var descriptionTextField: UITextField!
@@ -69,41 +70,37 @@ class UpdateTaskViewController: UIViewController {
      guard let title = titleTextField.text, !title.isEmpty,
             let description = descriptionTextField.text, !description.isEmpty,
 
-          let minutes = minutesTextField.text, !minutes.isEmpty,
-           let estimatedMinutesTex = minutesTextField.text,
-           let loggedTime = timeTextField.text,
+           let estimatedMinutesText = minutesTextField.text, !estimatedMinutesText.isEmpty,
+           let loggedTime = timeTextField.text, !loggedTime.isEmpty,
            let newLoggedTimeInt = Int(loggedTime),
-           let newEstimatedMinutesInt = Int(estimatedMinutesTex)
+           let newEstimatedMinutesInt = Int(estimatedMinutesText)
      else {
 print("Empty textField")
 return
      }
-     print(title)
 
+     if let userId = self.user?.userId {
+       TaskServiceAPI.updateTask(id: self.taskId ?? -1, title: title, description: description, estimateMinutes: newEstimatedMinutesInt, assigneeId: userId, loggedTime: newLoggedTimeInt, isDone: false) { [weak self] result in
+        guard let self else { print("griztu",
+                                    print("mano dabartinis task id yra: \(String(describing: self?.taskId))"))
+          return }
 
+        print("mano dabartinis task id yra: \(String(describing: self.taskId))")
 
+        switch result {
+          case .success(let updatedTask):
+            print("added new task with id: \(updatedTask.taskId)")
+            UIAlertController.showErrorAlert(title: "Success!", message: "Your task was updated", controller: self)
+            self.tableView.reloadData()
+          case .failure(let error):
+            UIAlertController.showErrorAlert(title: "Error with status code: \(String(describing: error.statusCode))", message: error.localizedDescription, controller: self)
+            print("error \(error.localizedDescription)")
+            print("error \(error.statusCode)")
+        }
 
-
-
-
-    TaskServiceAPI.updateTask(id: taskId ?? -1, title: title, description: description, estimateMinutes: newEstimatedMinutesInt, loggedTime: newLoggedTimeInt, isDone: false) { [weak self] result in
-      guard let self else { return }
-
-      print("mano dabartinis task id yra: \(String(describing: self.taskId))")
-
-      switch result {
-
-        case .success(let updatedTask):
-          print("added new task with id: \(updatedTask)")
-          UIAlertController.showErrorAlert(title: "Success!", message: "Your task was updated", controller: self)
-          self.tableView.reloadData()
-        case .failure(let error):
-          UIAlertController.showErrorAlert(title: "Error with status code: \(String(describing: error.statusCode))", message: error.localizedDescription, controller: self)
-          print("error \(error.localizedDescription)")
-          print("error \(error.statusCode)")
       }
+     }
 
-    }
 
    }
 

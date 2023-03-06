@@ -50,6 +50,7 @@ let updateTaskVC = UpdateTaskViewController()
     if let userId = user?.userId {
       TaskServiceAPI.fetchingUserTasks(url: URLBuilder.getTaskURL(withId: userId)) { [weak self] task in
         self?.userTasksArray = task.tasks
+        self?.updateTaskVC.userId = userId
       }
     }
   }
