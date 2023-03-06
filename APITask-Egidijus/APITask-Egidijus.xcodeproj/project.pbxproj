@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		ED0C3F6A29B2437000B6EDCD /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0C3F6929B2437000B6EDCD /* NetworkError.swift */; };
 		ED0C3F6C29B243AB00B6EDCD /* AccessRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0C3F6B29B243AB00B6EDCD /* AccessRequest.swift */; };
+		ED3C464129B64DF700DBB079 /* TaskAccessRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3C464029B64DF700DBB079 /* TaskAccessRequest.swift */; };
 		EDAFBC8F29B547F5007C4A8C /* UpdateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAFBC8E29B547F5007C4A8C /* UpdateTaskViewController.swift */; };
 		EDAFBC9329B56414007C4A8C /* UpdateTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDAFBC9229B56414007C4A8C /* UpdateTaskViewController.xib */; };
 		EDC36CDB29B0A36F008DC07E /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC36CDA29B0A36F008DC07E /* ListCell.swift */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		ED0C3F6929B2437000B6EDCD /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		ED0C3F6B29B243AB00B6EDCD /* AccessRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessRequest.swift; sourceTree = "<group>"; };
+		ED3C464029B64DF700DBB079 /* TaskAccessRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskAccessRequest.swift; sourceTree = "<group>"; };
 		EDAFBC8E29B547F5007C4A8C /* UpdateTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTaskViewController.swift; sourceTree = "<group>"; };
 		EDAFBC9229B56414007C4A8C /* UpdateTaskViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpdateTaskViewController.xib; sourceTree = "<group>"; };
 		EDC36CDA29B0A36F008DC07E /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
@@ -83,6 +85,13 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		ED3C464229B64E6F00DBB079 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		EDAFBC9429B5D727007C4A8C /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +130,7 @@
 		EDCD370A29AFE163000D77DA /* APITask-Egidijus */ = {
 			isa = PBXGroup;
 			children = (
+				ED3C464229B64E6F00DBB079 /* New Group */,
 				EDCD371929AFE165000D77DA /* Info.plist */,
 				EDAFBC9429B5D727007C4A8C /* Cells */,
 				EDCD371F29AFE20C000D77DA /* Controllers */,
@@ -165,6 +175,7 @@
 				EDCC9EE029B401690062B324 /* NewTaskId.swift */,
 				EDCC9EE229B418410062B324 /* UpdateTask.swift */,
 				EDCC9EE629B4189F0062B324 /* NewUpdatedTaskId.swift */,
+				ED3C464029B64DF700DBB079 /* TaskAccessRequest.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -262,6 +273,7 @@
 				EDCC9EE129B401690062B324 /* NewTaskId.swift in Sources */,
 				EDCD372A29AFE7FA000D77DA /* NewUserId.swift in Sources */,
 				EDCD372629AFE6E6000D77DA /* TaskServiceAPI.swift in Sources */,
+				ED3C464129B64DF700DBB079 /* TaskAccessRequest.swift in Sources */,
 				EDC36CDB29B0A36F008DC07E /* ListCell.swift in Sources */,
 				ED0C3F6A29B2437000B6EDCD /* NetworkError.swift in Sources */,
 				EDCD370C29AFE163000D77DA /* AppDelegate.swift in Sources */,
