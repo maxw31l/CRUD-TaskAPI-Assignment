@@ -11,6 +11,7 @@
 		ED0C3F6C29B243AB00B6EDCD /* AccessRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0C3F6B29B243AB00B6EDCD /* AccessRequest.swift */; };
 		EDAFBC8F29B547F5007C4A8C /* UpdateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAFBC8E29B547F5007C4A8C /* UpdateTaskViewController.swift */; };
 		EDAFBC9129B5495A007C4A8C /* UpdateTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAFBC9029B5495A007C4A8C /* UpdateTaskCell.swift */; };
+		EDAFBC9329B56414007C4A8C /* UpdateTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDAFBC9229B56414007C4A8C /* UpdateTaskViewController.xib */; };
 		EDC36CDB29B0A36F008DC07E /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC36CDA29B0A36F008DC07E /* ListCell.swift */; };
 		EDCC9EDD29B3FDDC0062B324 /* AccessTaskRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCC9EDC29B3FDDC0062B324 /* AccessTaskRequest.swift */; };
 		EDCC9EDF29B3FE1B0062B324 /* NewTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCC9EDE29B3FE1B0062B324 /* NewTask.swift */; };
@@ -41,6 +42,7 @@
 		ED0C3F6B29B243AB00B6EDCD /* AccessRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessRequest.swift; sourceTree = "<group>"; };
 		EDAFBC8E29B547F5007C4A8C /* UpdateTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTaskViewController.swift; sourceTree = "<group>"; };
 		EDAFBC9029B5495A007C4A8C /* UpdateTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTaskCell.swift; sourceTree = "<group>"; };
+		EDAFBC9229B56414007C4A8C /* UpdateTaskViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpdateTaskViewController.xib; sourceTree = "<group>"; };
 		EDC36CDA29B0A36F008DC07E /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 		EDCC9EDC29B3FDDC0062B324 /* AccessTaskRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTaskRequest.swift; sourceTree = "<group>"; };
 		EDCC9EDE29B3FE1B0062B324 /* NewTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTask.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 			children = (
 				EDCD373B29B0792F000D77DA /* UserViewController.xib */,
 				EDCD372E29AFEE3E000D77DA /* AuthenticationViewController.xib */,
+				EDAFBC9229B56414007C4A8C /* UpdateTaskViewController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				EDCD372F29AFEE3E000D77DA /* AuthenticationViewController.xib in Resources */,
 				EDCD373D29B0792F000D77DA /* UserViewController.xib in Resources */,
 				EDCD371829AFE165000D77DA /* LaunchScreen.storyboard in Resources */,
+				EDAFBC9329B56414007C4A8C /* UpdateTaskViewController.xib in Resources */,
 				EDCD371529AFE165000D77DA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

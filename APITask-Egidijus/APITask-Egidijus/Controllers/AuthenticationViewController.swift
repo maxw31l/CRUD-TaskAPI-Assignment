@@ -138,7 +138,7 @@ class AuthenticationViewController: UIViewController {
 
   
   func updateTask() {
-    TaskServiceAPI.updateTask(id: 274, title: "Wohjkhw", description: ";ssssss)", estimateMinutes: 15, assigneeId: 459, loggedTime: 5, isDone: true) { [weak self] result in
+    TaskServiceAPI.updateTask(id: 274, title: "Wohjkhw", description: ";ssssss)", estimateMinutes: 15, loggedTime: 5, isDone: true) { [weak self] result in
       guard self != nil else { return }
 
       switch  result {
